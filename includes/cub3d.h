@@ -6,11 +6,11 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:42:22 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/04 16:42:49 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/04 19:01:21 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
-# define CUB3d_H
+# define CUB3D_H
 
 #endif

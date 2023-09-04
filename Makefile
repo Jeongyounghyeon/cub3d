@@ -9,7 +9,6 @@ LIB =		-lmlx
 
 RM =		rm -rf
 BUILD_LIBFT = make -C libft $@
-BUILD_MLX = make -C mlx $@
 
 SRCS_RT_DIR =	srcs/
 
@@ -30,14 +29,11 @@ VPATH = 		$(SRCS_RT_DIR) \
 $(OBJS_DIR)%o: %c
 	$(CC) $(CFLAGS) ${INCLUDE} -c $< -o $@
 
-$(NAME): make_mlx make_mandatory
+$(NAME): make_mandatory
 
 all: $(NAME)
 
 bonus: all
-
-make_mlx:
-	make -C mlx
 
 make_mandatory: $(OBJS)
 	$(BUILD_LIBFT)
@@ -48,12 +44,10 @@ clean:
 	$(RM) $(OBJS) $(OBJS_BONUS)
 	$(RM) make_mandatory make_bonus
 	$(BUILD_LIBFT)
-	$(BUILD_MLX)
 
 fclean: clean
 	$(RM) $(NAME)
 	$(BUILD_LIBFT)
-	$(BUILD_MLX)
 
 re: 
 	make fclean
