@@ -5,14 +5,14 @@ CFLAGS =	-Wall -Wextra -Werror
 INCLUDE = 	-I includes \
 			-I libft/includes \
 			-I mlx
-LIB =		-lmlx
+LIB =		-Lmlx
 
 RM =		rm -rf
 BUILD_LIBFT = make -C libft $@
 
 SRCS_RT_DIR =	srcs/
 
-SRCS_DIR =		gnl \
+SRCS_DIR =		get_next_line \
 
 CFILES =		main.c
 
@@ -37,7 +37,7 @@ bonus: all
 
 make_mandatory: $(OBJS)
 	$(BUILD_LIBFT)
-	$(CC) $(CFLAGS) $(INCLUDE) -o $(NAME) $^
+	$(CC) $(CFLAGS) $(LIB) -o $(NAME) $^
 	touch $@
 
 clean:
