@@ -5,7 +5,7 @@ CFLAGS =	-Wall -Wextra -Werror
 INCLUDE = 	-I includes \
 			-I libft/includes \
 			-I mlx
-LIB =		-Lmlx
+LIB =		-Lmlx -lmlx -framework OpenGL -framework AppKit
 
 RM =		rm -rf
 BUILD_LIBFT = make -C libft $@
