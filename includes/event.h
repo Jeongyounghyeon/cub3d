@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   event.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 18:05:51 by youjeong          #+#    #+#             */
+/*   Created: 2023/09/05 14:21:55 by youjeong          #+#    #+#             */
 /*   Updated: 2023/09/05 16:35:46 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
-#include "mlx.h"
-#include "config.h"
-#include "window.h"
+#ifndef EVENT_H
+# define EVENT_H
 
-int	main(void)
-{
-	t_config	game;
-	t_map		map;
+# include "config.h"
 
-	window_init(&game, &map);
-	mlx_loop(game.window->mlx);
-	return (0);
-}
+# define KEY_W				13
+# define KEY_A				0
+# define KEY_S				1
+# define KEY_D				2
+# define KEY_LEFT			123
+# define KEY_RIGHT			124
+# define KEY_FORWARD 		126
+# define KEY_BACKWARD		125
+# define KEY_ESC			53
+
+# define EVENT_KEY_PRESS	2
+# define EVENT_KEY_EXIT		17
+
+int	event_key_hook_handler(int key_code, t_config *game);
+int	event_hook_handler(int key_code, t_config *game);
+
+#endif

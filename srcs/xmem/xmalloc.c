@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   xmalloc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 18:05:51 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/05 16:35:46 by youjeong         ###   ########.fr       */
+/*   Created: 2023/09/05 12:54:04 by jy_23             #+#    #+#             */
+/*   Updated: 2023/09/05 12:54:41 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
-#include "mlx.h"
-#include "config.h"
-#include "window.h"
+#include <stdlib.h>
 
-int	main(void)
+void	*xmalloc(size_t bytes)
 {
-	t_config	game;
-	t_map		map;
+	void	*temp;
 
-	window_init(&game, &map);
-	mlx_loop(game.window->mlx);
-	return (0);
+	temp = malloc(bytes);
+	if (temp == 0)
+		exit(1);
+	return (temp);
 }

@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   window_setting.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 16:59:25 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/05 14:55:14 by youjeong         ###   ########.fr       */
+/*   Created: 2023/09/05 14:40:44 by youjeong          #+#    #+#             */
+/*   Updated: 2023/09/05 16:35:46 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#include "config.h"
+#include "event.h"
+#include "window.h"
+#include "mlx.h"
 
-typedef struct s_map	t_map;
-
-enum e_ele_id
+void	window_setting(t_config *game)
 {
-	id_no,
-	id_so,
-	id_we,
-	id_ea,
-	id_f,
-	id_c
-};
-
-typedef struct s_map
-{
-	char	**contents;
-	char	*elements[6];
-	int		height;
-	int		weight;
-	int		start_x;
-	int		start_y;
-	int		start_dir;
-}	t_map;
-
-#endif
+	mlx_key_hook(game->window->win, event_key_hook_handler, game);
+	mlx_hook(game->window->win, EVENT_KEY_PRESS, 0, &event_hook_handler, &game);
+	mlx_hook(game->window->win, EVENT_KEY_EXIT, 0, &window_close, &game);
+}
