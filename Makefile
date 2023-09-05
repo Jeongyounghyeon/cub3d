@@ -37,7 +37,7 @@ bonus: all
 
 make_mandatory: $(OBJS)
 	$(BUILD_LIBFT)
-	$(CC) $(CFLAGS) $(LIB) -o $(NAME) $^
+	$(CC) $(CFLAGS) $(LIB) $^ -o $(NAME)
 	touch $@
 
 clean:
