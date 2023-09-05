@@ -1,42 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_map.c                                      :+:      :+:    :+:   */
+/*   bool.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 17:25:19 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/05 13:34:16 by jy_23            ###   ########.fr       */
+/*   Created: 2023/09/05 12:50:26 by jy_23             #+#    #+#             */
+/*   Updated: 2023/09/05 12:52:12 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef BOOL_H
+# define BOOL_H
 
-#include "map.h"
-
-void	destroy_map(t_map *map)
+typedef enum e_bool
 {
-	int		i;
+	false,
+	true
+}	t_bool;
 
-	if (map)
-	{
-		i = 0;
-		while (i < 6)
-		{
-			if (map->elements[i])
-				free(map->elements[i]);
-			i++;
-		}
-		if (map->contents)
-		{
-			while (*map->contents)
-			{
-				free(*map->contents);
-				map->contents++;
-			}
-			free(map->contents);
-		}
-		free(map);
-	}
-	return ;
-}
+#endif
