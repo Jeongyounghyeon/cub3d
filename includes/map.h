@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:59:25 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 12:17:26 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/12 13:44:10 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,15 @@ typedef struct s_map
 	int		start_dir;
 }	t_map;
 
+t_map	*create_map(char *file);
+
 t_bool	valid_extension(char *file);
 void	read_file(t_list **head, char *file);
-t_list	*nomalize_file(t_list *tmp_lst_4_map);
-void	parse_map(t_map *map, t_list *tmp_lst_4_map);
+t_list	*nomalize_file(t_list *lst_4_map);
+void	parse_map(t_map *map, t_list *lst_4_map);
+t_bool	valid_map(t_map *map);
+t_bool	is_empty_line(char *line);
+
+void	temp_error(void);
 
 #endif

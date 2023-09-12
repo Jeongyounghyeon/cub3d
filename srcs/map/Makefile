@@ -10,13 +10,17 @@ LIB = -L../../libft -lft
 BUILD_LIBFT = make -C ../../libft $@
 
 SRCS =		tester.c \
+			create_map.c \
 			valid_extension.c \
 			read_file.c \
 			nomalize_file.c \
 			parse_map.c \
 			valid_map.c \
+			is_empty_line.c \
 			../get_next_line/get_next_line.c \
-			../get_next_line/get_next_line_utils.c
+			../get_next_line/get_next_line_utils.c \
+			../xmem/free_vector_arr.c \
+			temp_error.c
 
 OBJS = 		$(SRCS:.c=.o)
 

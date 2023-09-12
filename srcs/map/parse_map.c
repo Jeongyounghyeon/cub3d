@@ -6,54 +6,56 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:33:14 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 12:55:19 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/12 13:36:53 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 #include "map.h"
+#include "xmem.h"
 
-void			parse_map(t_map *map, t_list *tmp_lst_4_map);
-static void		parse_map_elements(char **elements, t_list **p_tmp_lst_4_map);
+void			parse_map(t_map *map, t_list *lst_4_map);
+static void		parse_map_elements(char **elements, t_list **p_lst_4_map);
 static char		**parse_map_a_element(char *str);
 static t_ele_id	get_element_id(char *id_str);
-static void		parse_map_contents(char ***contents, t_list *tmp_lst_4_map);
+static void		parse_map_contents(char ***contents, t_list *lst_4_map);
 
-void	parse_map(t_map *map, t_list *tmp_lst_4_map)
+void	parse_map(t_map *map, t_list *lst_4_map)
 {
 	t_list	*iter;
 
-	iter = tmp_lst_4_map;
+	iter = lst_4_map;
 	parse_map_elements(map->elements, &iter);
 	parse_map_contents(&map->contents, iter);
 	map->start_x = -1;
 	map->start_y = -1;
 }
 
-static void	parse_map_elements(char **elements, t_list **p_tmp_lst_4_map)
+static void	parse_map_elements(char **elements, t_list **p_lst_4_map)
 {
 	t_list		*iter;
-	char		**element;
+	char		**a_element;
 	int			idx;
 	t_ele_id	ele_id;
 
 	idx = 0;
-	iter = *p_tmp_lst_4_map;
+	iter = *p_lst_4_map;
 	while (idx < NUM_OF_ELEMENT && iter)
 	{
-		element = parse_map_a_element(iter->content);
-		if (element)
+		a_element = parse_map_a_element(iter->content);
+		if (a_element)
 		{
-			ele_id = get_element_id(element[0]);
+			ele_id = get_element_id(a_element[0]);
 			if (ele_id != id_invalid)
-				elements[ele_id] = ft_substr(element[1], 0, ft_strlen(element[1]) - 1);
-			// free_vector_arr(elements)  // 2차원 배열 메모리 해제
+				elements[ele_id]
+					= ft_substr(a_element[1], 0, ft_strlen(a_element[1]) - 1);
+			free_vector_arr(a_element);
 		}
 		idx++;
 		iter = iter->next;
 	}
-	*p_tmp_lst_4_map = iter;
+	*p_lst_4_map = iter;
 }
 
 static char	**parse_map_a_element(char *str)
@@ -68,9 +70,7 @@ static char	**parse_map_a_element(char *str)
 	if (idx != 2)
 	{
 		idx = 0;
-		while (element[idx])
-			free(element[idx++]);
-		free(element);
+		free_vector_arr(element);
 		return (0);
 	}
 	else
@@ -97,15 +97,15 @@ static t_ele_id	get_element_id(char *id_str)
 		return (id_invalid);
 }
 
-static void	parse_map_contents(char ***p_contents, t_list *tmp_lst_4_map)
+static void	parse_map_contents(char ***p_contents, t_list *lst_4_map)
 {
 	int		i;
 	int		size;
 	char	**contents;
 	t_list	*iter;
 
-	iter = tmp_lst_4_map;
-	size = ft_lstsize(tmp_lst_4_map);
+	iter = lst_4_map;
+	size = ft_lstsize(lst_4_map);
 	contents = malloc(sizeof(char *) * (size + 1));
 	if (!contents)
 		exit(1);

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter_line_lst.c                                    :+:      :+:    :+:   */
+/*   is_empty_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 14:36:23 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/05 14:40:25 by jy_23            ###   ########.fr       */
+/*   Created: 2023/09/12 13:43:15 by jy_23             #+#    #+#             */
+/*   Updated: 2023/09/12 13:43:42 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include "map.h"
 #include "bool.h"
 
-t_list	*iter_line_lst(t_map *map, t_list *head, void (*func)(t_map *, void *));
-
-t_list	*iter_line_lst(t_map *map, t_list *head, void (*func)(t_map *, void *))
+t_bool	is_empty_line(char *line)
 {
-	t_list	*iter;
+	char	*empty_signs;
+	char	*trimed_line;
+	t_bool	value;
 
-	iter = head->next;
-	while (iter)
-	{
-		func(map, iter->content);
-		iter = iter->next;
-	}
-	return (iter);
+	empty_signs = " ";
+	value = false;
+	trimed_line = ft_strtrim(line, empty_signs);
+	if (!trimed_line)
+		exit (1);
+	else if (*trimed_line == '\n')
+		value = true;
+	free(trimed_line);
+	return (value);
 }

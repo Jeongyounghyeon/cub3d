@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:32:03 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 12:59:22 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/12 13:48:07 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static t_bool	valid_map_contents(t_map *map)
 	contents = map->contents;
 	while (contents[h])
 	{
+		if (is_empty_line(contents[h]) == true)
+			return (false);
 		w = 0;
 		len = ft_strlen(contents[h]);
 		while ((size_t)w < len - 1)
@@ -68,7 +70,6 @@ static t_bool	valid_map_contents(t_map *map)
 			if (valid_a_content(contents[h][w], map, w, h) == false)
 				return (false);
 			w++;
-			
 		}
 		if (w > map->width)
 			map->width = w;
@@ -84,9 +85,10 @@ static t_bool	valid_a_content(char content, t_map *map, int x, int y)
 		|| content == '0'
 		|| content == ' ')
 		return (true);
-	else if ((content == 'E' || content == 'W'
-			|| content == 'S' || content == 'N')
-			&& (map->start_x == -1 && map->start_y == -1))
+	else if (
+		(content == 'E' || content == 'W' || content == 'S' || content == 'N')
+		&& (map->start_x == -1 && map->start_y == -1)
+	)
 	{
 		update_player_info(content, map, x, y);
 		return (true);

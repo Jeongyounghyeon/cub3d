@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:34:33 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/11 15:46:32 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/12 13:07:16 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "map.h"
 #include "get_next_line.h"
-#include <stdio.h>
+
 void	read_file(t_list **head, char *file)
 {
 	char	*line;
