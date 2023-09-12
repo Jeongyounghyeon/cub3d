@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:33:14 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 12:19:36 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/12 12:55:19 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "map.h"
 
 void			parse_map(t_map *map, t_list *tmp_lst_4_map);
-static void		parse_map_elements(char **elements, t_list **tmp_lst_4_map);
+static void		parse_map_elements(char **elements, t_list **p_tmp_lst_4_map);
 static char		**parse_map_a_element(char *str);
 static t_ele_id	get_element_id(char *id_str);
 static void		parse_map_contents(char ***contents, t_list *tmp_lst_4_map);
@@ -27,9 +27,11 @@ void	parse_map(t_map *map, t_list *tmp_lst_4_map)
 	iter = tmp_lst_4_map;
 	parse_map_elements(map->elements, &iter);
 	parse_map_contents(&map->contents, iter);
+	map->start_x = -1;
+	map->start_y = -1;
 }
 
-static void	parse_map_elements(char **elements, t_list **tmp_lst_4_map)
+static void	parse_map_elements(char **elements, t_list **p_tmp_lst_4_map)
 {
 	t_list		*iter;
 	char		**element;
@@ -37,7 +39,7 @@ static void	parse_map_elements(char **elements, t_list **tmp_lst_4_map)
 	t_ele_id	ele_id;
 
 	idx = 0;
-	iter = *tmp_lst_4_map;
+	iter = *p_tmp_lst_4_map;
 	while (idx < NUM_OF_ELEMENT && iter)
 	{
 		element = parse_map_a_element(iter->content);
@@ -51,7 +53,7 @@ static void	parse_map_elements(char **elements, t_list **tmp_lst_4_map)
 		idx++;
 		iter = iter->next;
 	}
-	*tmp_lst_4_map = iter;
+	*p_tmp_lst_4_map = iter;
 }
 
 static char	**parse_map_a_element(char *str)
@@ -107,6 +109,7 @@ static void	parse_map_contents(char ***p_contents, t_list *tmp_lst_4_map)
 	contents = malloc(sizeof(char *) * (size + 1));
 	if (!contents)
 		exit(1);
+	ft_memset(contents, 0, sizeof(char *));
 	contents[size] = 0;
 	i = 0;
 	while (iter)

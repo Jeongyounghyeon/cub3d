@@ -14,6 +14,7 @@ SRCS =		tester.c \
 			read_file.c \
 			nomalize_file.c \
 			parse_map.c \
+			valid_map.c \
 			../get_next_line/get_next_line.c \
 			../get_next_line/get_next_line_utils.c
 
