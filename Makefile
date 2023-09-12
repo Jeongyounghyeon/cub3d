@@ -5,7 +5,7 @@ CFLAGS =	-Wall -Wextra -Werror
 INCLUDE = 	-I includes \
 			-I libft/includes \
 			-I mlx
-LIB =		-Lmlx
+LIB =		-Lmlx -lmlx -framework OpenGL -framework AppKit
 
 RM =		rm -rf
 BUILD_LIBFT = make -C libft $@
@@ -13,8 +13,18 @@ BUILD_LIBFT = make -C libft $@
 SRCS_RT_DIR =	srcs/
 
 SRCS_DIR =		get_next_line \
+				window \
+				config \
+				xmem
 
-CFILES =		main.c
+CFILES =		main.c \
+				init_config.c \
+				config_img.c \
+				window_init.c \
+				window_setting.c \
+				window_close.c \
+				event_hook_handler.c \
+				xmalloc.c
 
 CFILES :=		$(addprefix $(SRCS_RT_DIR), $(CFILES))
 

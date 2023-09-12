@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   window_setting.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 18:05:51 by youjeong          #+#    #+#             */
+/*   Created: 2023/09/05 14:40:44 by youjeong          #+#    #+#             */
 /*   Updated: 2023/09/05 16:35:46 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
-#include "mlx.h"
 #include "config.h"
+#include "event.h"
 #include "window.h"
+#include "mlx.h"
 
-int	main(void)
+void	window_setting(t_config *game)
 {
-	t_config	game;
-	t_map		map;
-
-	window_init(&game, &map);
-	mlx_loop(game.window->mlx);
-	return (0);
+	mlx_key_hook(game->window->win, event_key_hook_handler, game);
+	mlx_hook(game->window->win, EVENT_KEY_PRESS, 0, &event_hook_handler, &game);
+	mlx_hook(game->window->win, EVENT_KEY_EXIT, 0, &window_close, &game);
 }

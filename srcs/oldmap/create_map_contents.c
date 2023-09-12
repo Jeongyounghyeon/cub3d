@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   create_map_contents.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 18:05:51 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/05 16:35:46 by youjeong         ###   ########.fr       */
+/*   Created: 2023/09/04 17:25:10 by jy_23             #+#    #+#             */
+/*   Updated: 2023/09/11 14:03:02 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
+#include "libft.h"
+
 #include "map.h"
-#include "mlx.h"
-#include "config.h"
-#include "window.h"
+#include "bool.h"
 
-int	main(void)
-{
-	t_config	game;
-	t_map		map;
-
-	window_init(&game, &map);
-	mlx_loop(game.window->mlx);
-	return (0);
-}

@@ -66,20 +66,15 @@ $(NAME): all
 
 all: make_mandatory
 
-bonus: make_bonus
+bonus: all
 
-make_mandatory: $(OBJS)
+make_mandatory: $(OBJS) $(OBJS_BONUS)
 	$(AR) $(NAME) $^
-	touch $@
-
-make_bonus: $(OBJS) $(OBJS_BONUS)
-	$(AR) $(NAME) $^
-	touch make_mandatory
 	touch $@
 
 clean:
 	$(RM) $(OBJS) $(OBJS_BONUS)
-	$(RM) make_mandatory make_bonus
+	$(RM) make_mandatory
 
 fclean: clean
 	$(RM) $(NAME)
