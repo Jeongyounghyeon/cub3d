@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:32:03 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 13:48:07 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/12 17:31:27 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ static void		update_player_info( char content, t_map *map, int x, int y);
 t_bool	valid_map(t_map *map)
 {
 	if (valid_map_elements(map->elements) == false
-		|| valid_map_contents(map) == false)
+		|| valid_map_contents(map) == false
+		|| is_closed_wall(map) == false
+		|| map->start_x == -1 || map->start_y == -1)
 	{
 		return (false);
 	}
@@ -54,18 +56,18 @@ static t_bool	valid_map_contents(t_map *map)
 {
 	int		h;
 	int		w;
-	size_t	len;
 	char	**contents;
 
 	h = 0;
 	contents = map->contents;
+	if (!contents || !*contents)
+		return (false);
 	while (contents[h])
 	{
 		if (is_empty_line(contents[h]) == true)
 			return (false);
 		w = 0;
-		len = ft_strlen(contents[h]);
-		while ((size_t)w < len - 1)
+		while (contents[h][w])
 		{
 			if (valid_a_content(contents[h][w], map, w, h) == false)
 				return (false);

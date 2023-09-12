@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:59:25 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 14:06:23 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/12 15:27:31 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_list	*nomalize_file(t_list *lst_4_map);
 void	parse_map(t_map *map, t_list *lst_4_map);
 t_bool	valid_map(t_map *map);
 t_bool	is_empty_line(char *line);
+t_bool	is_closed_wall(t_map *map);
 
 void	temp_error(void);
 

@@ -17,6 +17,7 @@ SRCS =		tester.c \
 			parse_map.c \
 			valid_map.c \
 			is_empty_line.c \
+			is_closed_wall.c \
 			../get_next_line/get_next_line.c \
 			../get_next_line/get_next_line_utils.c \
 			../xmem/free_vector_arr.c \

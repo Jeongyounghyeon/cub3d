@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:01:20 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 13:25:56 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/12 17:23:29 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	show_map(t_map *map)
 	printf("------------------CONTENTS------------------\n");
 	i = 0;
 	while (map->contents[i])
-		printf("%s", map->contents[i++]);
+		printf("%s\n", map->contents[i++]);
 
 	printf("--------------------DATA--------------------\n");
 	printf("%d\n%d\n(%d, %d), %c\n", map->width, map->height, map->start_x, map->start_y, map->start_dir);
@@ -52,7 +52,7 @@ int	main(int argc, char *argv[])
 	ignore_param(argc, argv);
 	map = create_map(argv[1]);
 	show_map(map);
-	check_leaks();
+	//check_leaks();
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:33:14 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 13:36:53 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/12 16:45:27 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ static void	parse_map_contents(char ***p_contents, t_list *lst_4_map)
 	i = 0;
 	while (iter)
 	{
-		contents[i++] = ft_strdup((char *)iter->content);
+		contents[i++] = ft_substr(iter->content, 0, ft_strlen(iter->content) - 1);
 		iter = iter->next;
 	}
 	*p_contents = contents;
