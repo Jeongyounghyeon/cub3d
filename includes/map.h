@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:59:25 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 13:44:10 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/12 14:06:23 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define MAP_H
 
 # include "libft.h"
-
 # include "bool.h"
 
 # define NUM_OF_ELEMENT 6
@@ -30,7 +29,7 @@ typedef enum e_ele_id
 	id_ea,
 	id_f,
 	id_c
-}	t_ele_id;
+}t_ele_id;
 
 typedef struct s_map
 {
