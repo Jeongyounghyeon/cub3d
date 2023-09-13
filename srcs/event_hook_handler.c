@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event_hook_handler.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:25:10 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/13 16:02:46 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 17:46:51 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,31 @@
 #include "play.h"
 #include "window.h"
 
-int	event_key_hook_handler(int key_code, t_config *game);
-int	event_hook_handler(int key_code, t_config *game);
+int	event_key_hook_handler(int key_code, t_config *config);
+int	event_hook_handler(int key_code, t_config *config);
 
-int	event_key_hook_handler(int key_code, t_config *game)
+int	event_key_hook_handler(int key_code, t_config *config)
 {
+	(void)config;
 	if (key_code == KEY_ESC)
-		window_close(game);
+		exit(0);
 	return (0);
 }
 
-int	event_hook_handler(int key_code, t_config *game)
+int	event_hook_handler(int key_code, t_config *config)
 {
-	(void)game;
+	(void)config;
 	if (key_code == KEY_W)
-		printf("test W\n");
+		w_event_handler(config);
 	else if (key_code == KEY_A)
-		printf("test A\n");
+		a_event_handler(config);
 	else if (key_code == KEY_S)
-		printf("test S\n");
+		s_event_handler(config);
 	else if (key_code == KEY_D)
-		printf("test D\n");
-	else if (key_code == KEY_FORWARD)
-		printf("test FORWORD\n");
+		d_event_handler(config);
 	else if (key_code == KEY_LEFT)
-		printf("test LEFT\n");
-	else if (key_code == KEY_BACKWARD)
-		printf("test BACKWARD\n");
+		left_event_handler(config);
 	else if (key_code == KEY_RIGHT)
-		printf("test RIGHT\n");
+		right_event_handler(config);
 	return (0);
 }

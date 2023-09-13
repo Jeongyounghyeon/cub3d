@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_config.c                                      :+:      :+:    :+:   */
+/*   set_config.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 17:09:41 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/05 17:12:30 by youjeong         ###   ########.fr       */
+/*   Created: 2023/09/13 17:27:08 by youjeong          #+#    #+#             */
+/*   Updated: 2023/09/13 17:32:47 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "config.h"
-#include "xmem.h"
 
-void	init_config(t_config *config)
+void	set_config(t_config *config, t_map *map)
 {
-	config->window = (t_win *)xmalloc(1 * sizeof(t_win));
-	config->img = (t_img *)xmalloc(1 * sizeof(t_img));
+	config->map = map->contents;
+	
 }

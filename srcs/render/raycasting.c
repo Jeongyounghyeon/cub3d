@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:29:26 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 16:42:36 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 18:19:55 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void	raycasting(t_config *config)
 	t_ray	*ray;
 
 	x = 0;
-	ray = &(config->rc->ray);
-	while (x < config->window->width)
+	ray = &(config->rc.ray);
+	while (x < config->window.width)
 	{
-		init_data(config->rc, config->player, x, config->window->width);
-		init_ray_info(config->rc, config->player);
-		side = get_hit_side(config->rc, config->player, config->map);
+		init_data(&config->rc, &config->player, x, config->window.width);
+		init_ray_info(&config->rc, &config->player);
+		side = get_hit_side(&config->rc, &config->player, config->map);
 		if (side == 0)
 			perp_wall_dist = ray->side_dist.x - ray->delta_dist.x;
 		else
