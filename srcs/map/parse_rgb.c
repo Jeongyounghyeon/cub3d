@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 17:25:50 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 18:12:41 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 18:27:51 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,19 @@ static unsigned long long	parse_r_g_b(char *rgb)
 {
 	int	i;
 	char					**sep_rgb;
-	char					**trimed_rgb;
 	unsigned long long		numeric_rgb[3];
 	unsigned long long		hex_rgb;
 
 	sep_rgb = xsplit(rgb, ',');
-	trimed_rgb = xmalloc(sizeof(char *) * (4));
-	trimed_rgb[3] = 0;
 	i = 0;
 	while (i < 3)
 	{
-		trimed_rgb[i] = xtrim(sep_rgb[i], " ");
-		numeric_rgb[i] = valid_r_g_b(trimed_rgb[i]);
+		numeric_rgb[i] = valid_r_g_b(sep_rgb[i]);
 		i++;
 	}
-	free_vector_arr(sep_rgb);
 	hex_rgb = ((numeric_rgb[0] & 0xff) << 24) + ((numeric_rgb[1] & 0xff) << 16)
 			+ ((numeric_rgb[2] & 0xff) << 8) + (0xff);
-	free_vector_arr(trimed_rgb);
+	free_vector_arr(sep_rgb);
 	return (hex_rgb);
 }
 
