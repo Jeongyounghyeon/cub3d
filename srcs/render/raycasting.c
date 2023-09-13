@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:29:26 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 18:19:55 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:36:35 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ static int	get_hit_side(t_raycasting *rc, t_player *player, char **map)
 			map_y += rc->step.y;
 			side = 1;
 		}
-		if (map[map_y][map_x] > 0)
+		if (map[map_y][map_x] > '0')
 			hit = 1;
 	}
 	return (side);

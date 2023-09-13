@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:44:37 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 17:15:20 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 18:32:03 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char	*ft_strerror(t_errno errno)
 	else if (errno == err_cub_file)
 		return ("Invalid file");
 	else if (errno == err_ele_id)
-		return ("Invalid element (Number or ID)");
+		return ("Invalid element");
 	else if (errno == err_ele_info_img)
 		return ("Invalid image path");
 	else if (errno == err_ele_info_rgb)
