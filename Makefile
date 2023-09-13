@@ -17,7 +17,8 @@ SRCS_DIR =		config \
 				map \
 				render \
 				get_next_line \
-				xmem
+				xmem \
+				exception
 
 CFILES =		main.c \
 				init_config.c \
@@ -46,7 +47,7 @@ CFILES =		main.c \
 				xsplit.c \
 				free_vector_arr.c \
 				\
-				temp_error.c
+				exception_handler.c
 
 CFILES :=		$(addprefix $(SRCS_RT_DIR), $(CFILES))
 
