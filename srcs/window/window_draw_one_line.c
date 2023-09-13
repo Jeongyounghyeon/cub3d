@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   window.h                                           :+:      :+:    :+:   */
+/*   window_draw_one_line.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 14:44:03 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/13 19:14:43 by youjeong         ###   ########.fr       */
+/*   Created: 2023/09/13 18:42:03 by youjeong          #+#    #+#             */
+/*   Updated: 2023/09/13 18:52:04 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WINDOW_H
-# define WINDOW_H
+#include "mlx.h"
+#include "window.h"
 
-typedef struct s_win	t_win;
-typedef struct s_img	t_img;
+void	window_draw_one_line(t_win *window, int x, int y[2], int color)
+{
+	int	iter_y;
 
-/* mlx 구조체 */
-typedef struct s_win {
-	void	*mlx;
-	void	*win;
-}	t_win;
-
-/* images */
-typedef struct s_img {
-	void	*ceiling;
-	void	*floor;
-	void	*north;
-	void	*south;
-	void	*west;
-	void	*east;
-}t_img;
-
-#endif
+	iter_y = y[0];
+	while (iter_y <= y[1])
+		mlx_pixel_put(window->mlx, window->win, x, iter_y, color);
+}
