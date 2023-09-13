@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_math.h                                          :+:      :+:    :+:   */
+/*   coordinate.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 13:44:19 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/11 13:46:01 by youjeong         ###   ########.fr       */
+/*   Created: 2023/09/13 15:46:23 by jy_23             #+#    #+#             */
+/*   Updated: 2023/09/13 15:47:40 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MATH_H
-# define FT_MATH_H
+#ifndef COORDINATE_H
+# define COORDINATE_H
 
-# include <math.h>
+typedef struct s_coord
+{
+	double	x;
+	double	y;
+}	t_coord;
 
 typedef struct s_vector {
 	double	x;
 	double	y;
-}t_vector;
+}	t_vector;
 
 #endif

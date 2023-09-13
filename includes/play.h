@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event.h                                            :+:      :+:    :+:   */
+/*   play.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:21:55 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/05 16:35:46 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:52:58 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EVENT_H
-# define EVENT_H
+#ifndef PLAY_H
+# define PLAY_H
 
 # include "config.h"
+# include "coordinate.h"
 
 # define KEY_W				13
 # define KEY_A				0
@@ -27,6 +28,14 @@
 
 # define EVENT_KEY_PRESS	2
 # define EVENT_KEY_EXIT		17
+
+typedef struct s_player
+{
+	t_coord		pos;
+	t_vector	dir;
+	t_coord		map_pos;
+}	t_player;
+
 
 int	event_key_hook_handler(int key_code, t_config *game);
 int	event_hook_handler(int key_code, t_config *game);

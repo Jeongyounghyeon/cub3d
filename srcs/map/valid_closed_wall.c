@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_closed_wall.c                                   :+:      :+:    :+:   */
+/*   valid_closed_wall.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:00:17 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 17:22:34 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 13:56:44 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include "map.h"
 #include "bool.h"
 
-t_bool			is_closed_wall(t_map *map);
-static t_bool	is_closed_wall_internal(char **contents, int *lens_4_compare, int w, int h);
+t_bool			valid_closed_wall(t_map *map);
+static t_bool	valid_closed_wall_internal(char **contents, int *lens_4_compare, int w, int h);
 static t_bool	valid_based_space(char **contents, int w, int h);
 static t_bool	valid_based_blank(char **contents, int w, int h, int compare_len);
 
-t_bool	is_closed_wall(t_map *map)
+t_bool	valid_closed_wall(t_map *map)
 {
 	int	h;
 	int	w;
@@ -35,7 +35,7 @@ t_bool	is_closed_wall(t_map *map)
 		w = 0;
 		while (map->contents[h][w])
 		{
-			if (is_closed_wall_internal(map->contents, len_set_4_comp, w, h) == false)
+			if (valid_closed_wall_internal(map->contents, len_set_4_comp, w, h) == false)
 				return (false);
 			w++;
 		}
@@ -46,7 +46,7 @@ t_bool	is_closed_wall(t_map *map)
 	return (true);
 }
 
-static t_bool	is_closed_wall_internal(char **contents, int *len_set_4_comp, int w, int h)
+static t_bool	valid_closed_wall_internal(char **contents, int *len_set_4_comp, int w, int h)
 {
 	int	ignore_len;
 
