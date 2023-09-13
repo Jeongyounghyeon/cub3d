@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:42:41 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/05 16:35:46 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:13:04 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 #include "config.h"
 
-int	window_close(t_config *game);
+int	window_close(t_config *config);
 
-int	window_close(t_config *game)
+int	window_close(t_config *config)
 {
-	(void)game;
-	// destroy game();
+	(void)config;
+	// destroy config();
 	exit(0);
 }

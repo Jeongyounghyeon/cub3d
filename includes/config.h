@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:11:24 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/13 16:06:05 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 16:13:42 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 typedef struct s_config		t_config;
 
-/* game data */
+/* config data */
 typedef struct s_config {
 	t_win			*window;
 	t_img			*img;
@@ -28,11 +28,11 @@ typedef struct s_config {
 	t_raycasting	*raycasting;
 }	t_config;
 
-void	window_init(t_config *game, t_map *map);
-void	window_setting(t_config *game);
-int		window_close(t_config *game);
+void	window_init(t_config *config, t_map *map);
+void	window_setting(t_config *config);
+int		window_close(t_config *config);
 
-int	event_key_hook_handler(int key_code, t_config *game);
-int	event_hook_handler(int key_code, t_config *game);
+int	event_key_hook_handler(int key_code, t_config *config);
+int	event_hook_handler(int key_code, t_config *config);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event_hook_handler.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:25:10 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/13 16:02:46 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 16:13:04 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 #include "play.h"
 #include "window.h"
 
-int	event_key_hook_handler(int key_code, t_config *game);
-int	event_hook_handler(int key_code, t_config *game);
+int	event_key_hook_handler(int key_code, t_config *config);
+int	event_hook_handler(int key_code, t_config *config);
 
-int	event_key_hook_handler(int key_code, t_config *game)
+int	event_key_hook_handler(int key_code, t_config *config)
 {
 	if (key_code == KEY_ESC)
-		window_close(game);
+		window_close(config);
 	return (0);
 }
 
-int	event_hook_handler(int key_code, t_config *game)
+int	event_hook_handler(int key_code, t_config *config)
 {
-	(void)game;
+	(void)config;
 	if (key_code == KEY_W)
 		printf("test W\n");
 	else if (key_code == KEY_A)
