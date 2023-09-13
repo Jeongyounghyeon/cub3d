@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   window.h                                           :+:      :+:    :+:   */
+/*   window_draw.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 14:44:03 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/13 19:14:43 by youjeong         ###   ########.fr       */
+/*   Created: 2023/09/13 18:34:20 by youjeong          #+#    #+#             */
+/*   Updated: 2023/09/13 19:17:32 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WINDOW_H
-# define WINDOW_H
+#include "config.h"
+#include "mlx.h"
+#include "render.h"
 
-typedef struct s_win	t_win;
-typedef struct s_img	t_img;
+static void	screen_init(t_win *window);
 
-/* mlx 구조체 */
-typedef struct s_win {
-	void	*mlx;
-	void	*win;
-}	t_win;
+int	window_draw(t_config *config)
+{
+	screen_init(&config->window);
+	raycasting(config);
+	return (0);
+}
 
-/* images */
-typedef struct s_img {
-	void	*ceiling;
-	void	*floor;
-	void	*north;
-	void	*south;
-	void	*west;
-	void	*east;
-}t_img;
-
-#endif
+static void	screen_init(t_win *window)
+{
+	for (int y = 0; y < WINDOW_HEIGHT; y++) {
+		for (int x = 0; x < WINDOW_HEIGHT; x++) {
+			mlx_pixel_put(window->mlx, window->win, x, y, 0xFFFFFF);
+		}
+	}
+}

@@ -23,12 +23,16 @@ SRCS_DIR =		config \
 				xmem
 
 CFILES =		main.c \
+				set_config.c \
 				config_img.c \
 				config_player.c \
 				window_init.c \
 				window_setting.c \
+				window_draw.c \
+				window_draw_one_line.c \
 				event_hook_handler.c \
 				raycasting.c \
+				calc_and_draw_one_line.c \
 				\
 				create_map.c \
 				valid_extension.c \
