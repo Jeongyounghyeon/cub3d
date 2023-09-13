@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:21:55 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/13 17:48:10 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:55:34 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define MOVE_SPEED			0.05
 # define ROT_SPEED			0.05
 
-# define WALL				'0'
+# define WALL				'1'
 
 typedef struct s_player
 {

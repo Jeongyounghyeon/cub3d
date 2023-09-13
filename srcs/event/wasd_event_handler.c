@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:39:16 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/13 17:21:37 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/13 20:53:48 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	a_event_handler(t_config *config);
 void	s_event_handler(t_config *config);
 void	d_event_handler(t_config *config);
 
+#include <stdio.h>
 void	w_event_handler(t_config *config)
 {
 	char		**map;
@@ -42,9 +43,9 @@ void	a_event_handler(t_config *config)
 	pos = &config->player.pos;
 	dir = &config->player.dir;
 	if (map[(int)pos->y][(int)(pos->x - dir->x * MOVE_SPEED)] != WALL)
-		pos->x -= dir->x * MOVE_SPEED;
+		pos->x -= dir->y * MOVE_SPEED;
 	if (map[(int)(pos->y + dir->y * MOVE_SPEED)][(int)(pos->x)] != WALL)
-		pos->y += dir->y * MOVE_SPEED;
+		pos->y += dir->x * MOVE_SPEED;
 }
 
 void	s_event_handler(t_config *config)
@@ -72,7 +73,7 @@ void	d_event_handler(t_config *config)
 	pos = &config->player.pos;
 	dir = &config->player.dir;
 	if (map[(int)pos->y][(int)(pos->x + dir->x * MOVE_SPEED)] != WALL)
-		pos->x += dir->x * MOVE_SPEED;
+		pos->x += dir->y * MOVE_SPEED;
 	if (map[(int)(pos->y - dir->y * MOVE_SPEED)][(int)(pos->x)] != WALL)
-		pos->y -= dir->y * MOVE_SPEED;
+		pos->y -= dir->x * MOVE_SPEED;
 }
