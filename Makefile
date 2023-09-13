@@ -36,6 +36,7 @@ CFILES =		main.c \
 				parse_map.c \
 				valid_map.c \
 				valid_closed_wall.c \
+				parse_rgb.c \
 				is_empty_line.c \
 				\
 				get_next_line.c \

@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:32:03 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 17:08:43 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 17:40:07 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include "map.h"
 #include "bool.h"
 #include "exception.h"
+#include "xmem.h"
 
 void			valid_map(t_map *map);
 static void		valid_map_elements(char *elements[]);
 static void		valid_map_contents(t_map *map);
 static t_bool	valid_a_content(char content, t_map *map, int x, int y);
-static void		update_player_info( char content, t_map *map, int x, int y);
 
 void	valid_map(t_map *map)
 {
@@ -85,17 +85,12 @@ static t_bool	valid_a_content(char content, t_map *map, int x, int y)
 		&& (map->start_x == -1 && map->start_y == -1)
 	)
 	{
-		update_player_info(content, map, x, y);
+		map->start_x = x;
+		map->start_y = y;
+		map->start_dir = content;
+		map->contents[y][x] = '0';
 		return (true);
 	}
 	else
 		return (false);
-}
-
-static void	update_player_info( char content, t_map *map, int x, int y)
-{
-	map->start_x = x;
-	map->start_y = y;
-	map->start_dir = content;
-	map->contents[y][x] = '0';
 }

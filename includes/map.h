@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:59:25 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 17:09:02 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 17:50:19 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ typedef enum e_ele_id
 
 typedef struct s_map
 {
-	char	**contents;
-	char	*elements[6];
-	int		f_rgb;
-	int		c_rgb;
-	int		width;
-	int		height;
-	int		start_x;
-	int		start_y;
-	int		start_dir;
+	char					**contents;
+	char					*elements[6];
+	unsigned long long		f_rgb;
+	unsigned long long		c_rgb;
+	int						width;
+	int						height;
+	int						start_x;
+	int						start_y;
+	int						start_dir;
 }	t_map;
 
 t_map	*create_map(char *file);
@@ -51,6 +51,7 @@ t_list	*nomalize_file(t_list *lst_4_map);
 void	parse_map(t_map *map, t_list *lst_4_map);
 void	valid_map(t_map *map);
 void	valid_closed_wall(t_map *map);
+void	parse_rgb(t_map *map);
 
 t_bool	is_empty_line(char *line);
 

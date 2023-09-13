@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:01:20 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 17:23:29 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 18:09:18 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	show_map(t_map *map)
 
 	printf("--------------------DATA--------------------\n");
 	printf("%d\n%d\n(%d, %d), %c\n", map->width, map->height, map->start_x, map->start_y, map->start_dir);
+	printf("f: %llu c: %llu\n", map->f_rgb, map->c_rgb);
 }
 
 int	main(int argc, char *argv[])

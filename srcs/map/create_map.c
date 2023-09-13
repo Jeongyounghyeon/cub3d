@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:37:29 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 17:09:18 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 17:42:35 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_map	*create_map(char *file)
 	normalized_list_4_map = nomalize_file(init_list_4_map->next);
 	parse_map(map, normalized_list_4_map);
 	valid_map(map);
+	parse_rgb(map);
 	finalize(&init_list_4_map);
 	return (map);
 }
