@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:00:17 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 13:56:44 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 17:03:00 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 #include "map.h"
 #include "bool.h"
+#include "exception.h"
 
-t_bool			valid_closed_wall(t_map *map);
+void			valid_closed_wall(t_map *map);
 static t_bool	valid_closed_wall_internal(char **contents, int *lens_4_compare, int w, int h);
 static t_bool	valid_based_space(char **contents, int w, int h);
 static t_bool	valid_based_blank(char **contents, int w, int h, int compare_len);
 
-t_bool	valid_closed_wall(t_map *map)
+void	valid_closed_wall(t_map *map)
 {
 	int	h;
 	int	w;
@@ -36,14 +37,13 @@ t_bool	valid_closed_wall(t_map *map)
 		while (map->contents[h][w])
 		{
 			if (valid_closed_wall_internal(map->contents, len_set_4_comp, w, h) == false)
-				return (false);
+				exception_handler(err_wall);
 			w++;
 		}
 		len_set_4_comp[0] = len_set_4_comp[1];
 		len_set_4_comp[1] = len_set_4_comp[2];
 		h++;
 	}
-	return (true);
 }
 
 static t_bool	valid_closed_wall_internal(char **contents, int *len_set_4_comp, int w, int h)

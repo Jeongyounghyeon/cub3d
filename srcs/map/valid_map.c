@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:32:03 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 16:22:08 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 17:08:43 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,24 @@
 
 #include "map.h"
 #include "bool.h"
+#include "exception.h"
 
-t_bool			valid_map(t_map *map);
-static t_bool	valid_map_elements(char *elements[]);
-static t_bool	valid_map_contents(t_map *map);
+void			valid_map(t_map *map);
+static void		valid_map_elements(char *elements[]);
+static void		valid_map_contents(t_map *map);
 static t_bool	valid_a_content(char content, t_map *map, int x, int y);
 static void		update_player_info( char content, t_map *map, int x, int y);
 
-t_bool	valid_map(t_map *map)
+void	valid_map(t_map *map)
 {
-	if (valid_map_elements(map->elements) == false
-		|| valid_map_contents(map) == false
-		|| valid_closed_wall(map) == false
-		|| map->start_x == -1 || map->start_y == -1)
-	{
-		return (false);
-	}
-	else
-	{
-		return (true);
-	}
+	valid_map_elements(map->elements);
+	valid_map_contents(map);
+	valid_closed_wall(map);
+	if (map->start_x == -1 || map->start_y == -1)
+		exception_handler(err_player);
 }
 
-static t_bool	valid_map_elements(char *elements[])
+static void	valid_map_elements(char *elements[])
 {
 	int	i;
 
@@ -45,14 +40,13 @@ static t_bool	valid_map_elements(char *elements[])
 	{
 		if (!elements[i])
 		{
-			return (false);
+			exception_handler(err_ele_id);
 		}
 		i++;
 	}
-	return (true);
 }
 
-static t_bool	valid_map_contents(t_map *map)
+static void	valid_map_contents(t_map *map)
 {
 	int		h;
 	int		w;
@@ -61,16 +55,16 @@ static t_bool	valid_map_contents(t_map *map)
 	h = 0;
 	contents = map->contents;
 	if (!contents || !*contents)
-		return (false);
+		exception_handler(err_map);
 	while (contents[h])
 	{
 		if (is_empty_line(contents[h]) == true)
-			return (false);
+			exception_handler(err_map);
 		w = 0;
 		while (contents[h][w])
 		{
 			if (valid_a_content(contents[h][w], map, w, h) == false)
-				return (false);
+				exception_handler(err_map);
 			w++;
 		}
 		if (w > map->width)
@@ -78,7 +72,6 @@ static t_bool	valid_map_contents(t_map *map)
 		h++;
 	}
 	map->height = h;
-	return (true);
 }
 
 static t_bool	valid_a_content(char content, t_map *map, int x, int y)

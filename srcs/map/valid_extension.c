@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 13:57:01 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 13:37:04 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 16:58:32 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 #include "libft.h"
 
 #include "map.h"
-#include "bool.h"
+#include "exception.h"
 
-t_bool	valid_extension(char *file)
+void	valid_extension(char *file)
 {
 	char	*extension;
 	char	*cub_file;
@@ -28,13 +28,14 @@ t_bool	valid_extension(char *file)
 		extension = ft_strrchr(file, '.');
 		if (!extension
 			|| ft_strncmp(extension, cub_file, ft_strlen(cub_file) + 1))
-			return (false);
+		{
+			exception_handler(err_cub_file);
+		}
 		else
-			return (true);
+			return ;
 	}
 	else
 	{
-		temp_error();
-		return (false);
+		exception_handler(err_arg);
 	}
 }

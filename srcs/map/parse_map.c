@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:33:14 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 16:39:53 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 16:58:58 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,7 @@ static void	parse_map_contents(char ***p_contents, t_list *lst_4_map)
 
 	iter = lst_4_map;
 	size = ft_lstsize(lst_4_map);
-	contents = malloc(sizeof(char *) * (size + 1));
-	if (!contents)
-		exit(1);
+	contents = xmalloc(sizeof(char *) * (size + 1));
 	ft_memset(contents, 0, sizeof(char *));
 	contents[size] = 0;
 	i = 0;
