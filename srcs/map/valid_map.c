@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:32:03 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/12 17:31:27 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 16:22:08 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_bool	valid_map(t_map *map)
 {
 	if (valid_map_elements(map->elements) == false
 		|| valid_map_contents(map) == false
-		|| is_closed_wall(map) == false
+		|| valid_closed_wall(map) == false
 		|| map->start_x == -1 || map->start_y == -1)
 	{
 		return (false);

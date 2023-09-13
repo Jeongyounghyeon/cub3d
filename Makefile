@@ -5,16 +5,18 @@ CFLAGS =	-Wall -Wextra -Werror
 INCLUDE = 	-I includes \
 			-I libft/includes \
 			-I mlx
-LIB =		-Lmlx -lmlx -framework OpenGL -framework AppKit
+LIB =		-Llibft -lft -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 RM =		rm -rf
 BUILD_LIBFT = make -C libft $@
 
 SRCS_RT_DIR =	srcs/
 
-SRCS_DIR =		get_next_line \
+SRCS_DIR =		config \
 				window \
-				config \
+				map \
+				render \
+				get_next_line \
 				xmem
 
 CFILES =		main.c \
@@ -24,7 +26,24 @@ CFILES =		main.c \
 				window_setting.c \
 				window_close.c \
 				event_hook_handler.c \
-				xmalloc.c
+				raycasting.c \
+				\
+				create_map.c \
+				valid_extension.c \
+				read_file.c \
+				nomalize_file.c \
+				parse_map.c \
+				valid_map.c \
+				valid_closed_wall.c \
+				is_empty_line.c \
+				\
+				get_next_line.c \
+				get_next_line_utils.c \
+				\
+				xmalloc.c \
+				free_vector_arr.c \
+				\
+				temp_error.c
 
 CFILES :=		$(addprefix $(SRCS_RT_DIR), $(CFILES))
 
