@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:55:18 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/13 16:13:04 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:31:06 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@
 #include "window.h"
 #include "play.h"
 
-void	window_init(t_config *config, t_map *map);
+void	window_init(t_config *config);
 
-void	window_init(t_config *config, t_map *map)
+void	window_init(t_config *config)
 {
-	(void)map;
-	config->window->mlx = mlx_init();
-	config->window->win = mlx_new_window(config->window->mlx, 1294, 800, "cub3d");
+	config->window.mlx = mlx_init();
+	config->window.win = mlx_new_window(config->window.mlx, 1294, 800, "cub3d");
 	window_setting(config);
 }

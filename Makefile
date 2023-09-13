@@ -15,15 +15,17 @@ SRCS_RT_DIR =	srcs/
 SRCS_DIR =		get_next_line \
 				window \
 				config \
+				event \
 				xmem
 
 CFILES =		main.c \
-				init_config.c \
 				config_img.c \
+				config_player.c \
 				window_init.c \
 				window_setting.c \
-				window_close.c \
 				event_hook_handler.c \
+				wasd_event_handler.c \
+				arrow_event_handler.c \
 				xmalloc.c
 
 CFILES :=		$(addprefix $(SRCS_RT_DIR), $(CFILES))

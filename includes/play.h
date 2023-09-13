@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   play.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:21:55 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/13 16:01:55 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 17:48:10 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PLAY_H
 # define PLAY_H
 
-# include "config.h"
+// # include "config.h"
 # include "coordinate.h"
 
 # define KEY_W				13
@@ -28,6 +28,11 @@
 
 # define EVENT_KEY_PRESS	2
 # define EVENT_KEY_EXIT		17
+
+# define MOVE_SPEED			0.05
+# define ROT_SPEED			0.05
+
+# define WALL				'0'
 
 typedef struct s_player
 {
