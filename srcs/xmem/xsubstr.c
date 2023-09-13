@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   xsubstr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 18:25:09 by juyyang           #+#    #+#             */
-/*   Updated: 2023/09/13 16:39:22 by jy_23            ###   ########.fr       */
+/*   Created: 2023/09/13 16:37:33 by jy_23             #+#    #+#             */
+/*   Updated: 2023/09/13 16:41:54 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s1, const char *set)
-{
-	size_t	i;
+#include "xmem.h"
 
-	if (!set || !s1)
+char	*xsubstr(const char *s, unsigned int start, size_t len)
+{
+	char	*dst;
+	size_t	i;
+	size_t	size;
+
+	if (!s)
 		return (0);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	i = ft_strlen(s1);
-	while (i && ft_strchr(set, s1[i]) != 0)
-		i--;
-	return (ft_substr(s1, 0, i + 1));
+	if (ft_strlen(s) < start)
+		size = 0;
+	else if (ft_strlen(s) - start < len)
+		size = ft_strlen(s) - start;
+	else
+		size = len;
+	dst = (char *)xmalloc(sizeof(char) * (size + 1));
+	if (!s || !dst || len < 0)
+		return (0);
+	i = 0;
+	while (i < len && start < ft_strlen(s))
+		dst[i++] = s[start++];
+	dst[i] = 0;
+	return (dst);
 }

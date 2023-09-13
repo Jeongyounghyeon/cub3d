@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:29:26 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 16:20:13 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 16:42:36 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 void			raycasting(t_config *config);
 static void		init_data(t_raycasting *rc, t_player *player, int x, int w);
 static double	calc_delta_dist(double ray_dir);
-static void	init_ray_info(t_raycasting *rc, t_player *player);
+static void		init_ray_info(t_raycasting *rc, t_player *player);
 static int		get_hit_side(t_raycasting *rc, t_player *player, char **map);
 
 void	raycasting(t_config *config)
@@ -33,7 +33,7 @@ void	raycasting(t_config *config)
 	{
 		init_data(config->rc, config->player, x, config->window->width);
 		init_ray_info(config->rc, config->player);
-		side = get_hit_side(config->rc, config->player, config->window->map);
+		side = get_hit_side(config->rc, config->player, config->map);
 		if (side == 0)
 			perp_wall_dist = ray->side_dist.x - ray->delta_dist.x;
 		else

@@ -41,6 +41,9 @@ CFILES =		main.c \
 				get_next_line_utils.c \
 				\
 				xmalloc.c \
+				xtrim.c \
+				xsubstr.c \
+				xsplit.c \
 				free_vector_arr.c \
 				\
 				temp_error.c
