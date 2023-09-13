@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event_hook_handler.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:25:10 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/05 16:35:46 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:02:46 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 #include "config.h"
-#include "event.h"
+#include "play.h"
 #include "window.h"
 
 int	event_key_hook_handler(int key_code, t_config *game);

@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:21:55 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/13 15:52:58 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/13 16:01:55 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,5 @@ typedef struct s_player
 	t_coord		map_pos;
 }	t_player;
 
-
-int	event_key_hook_handler(int key_code, t_config *game);
-int	event_hook_handler(int key_code, t_config *game);
 
 #endif

@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   window_setting.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:40:44 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/05 16:35:46 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:02:34 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "config.h"
-#include "event.h"
-#include "window.h"
+
 #include "mlx.h"
+
+#include "config.h"
+#include "window.h"
+#include "play.h"
 
 void	window_setting(t_config *game)
 {
