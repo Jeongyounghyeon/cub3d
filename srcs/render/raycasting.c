@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:29:26 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/16 13:16:19 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:35:11 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,27 @@ static int		get_hit_side(t_raycasting *rc, t_player *player, char **map);
 
 void	raycasting(t_config *config)
 {
-	int 	x;
-	int		side;
-	double	perp_wall_dist;
-	// t_ray	*ray;
+	int 			x;
+	int				side;
+	double			perp_wall_dist;
+	t_raycasting	*rc;
+	t_player		*player;
 
 	x = 0;
-	// ray = &(config->rc.ray);
+	rc = &config->rc;
+	player = &config->player;
 	while (x < WINDOW_WIDTH)
 	{
-		init_data(&config->rc, &config->player, x, WINDOW_WIDTH);
-		init_ray_info(&config->rc, &config->player);
-		side = get_hit_side(&config->rc, &config->player, config->map);
+		init_data(rc, player, x, WINDOW_WIDTH);
+		init_ray_info(rc, player);
+		side = get_hit_side(rc, player, config->map);
 		if (side == 0)
-			perp_wall_dist = (config->player.map_pos.x - config->player.pos.x + (1 - config->rc.step.x) / 2) / config->rc.ray.ray_dir.x;
-			// perp_wall_dist = ray->side_dist.x - ray->delta_dist.x;
+			 perp_wall_dist = rc->ray.side_dist.x - rc->ray.delta_dist.x;
 		else
-			perp_wall_dist = (config->player.map_pos.y - config->player.pos.y + (1 - config->rc.step.y) / 2) / config->rc.ray.ray_dir.y;
-			// perp_wall_dist = ray->side_dist.y - ray->delta_dist.y;
+			perp_wall_dist = rc->ray.side_dist.y - rc->ray.delta_dist.y;
 		calc_and_put_window_image(config, x, perp_wall_dist, side);
-
-		// calc_and_draw_one_line(config, x, perp_wall_dist);
 		x++;
 	}
-	// clear();
 }
 
 static void	init_data(t_raycasting *rc, t_player *player, int x, int w)
@@ -63,9 +60,9 @@ static void	init_data(t_raycasting *rc, t_player *player, int x, int w)
 
 static double	calc_delta_dist(double ray_dir)
 {
-	// if (ray_dir == 0)
-	// 	return (1e30);
-	// else
+	 if (ray_dir == 0)
+	 	return (1e30);
+	 else
 		return (fabs(1 / ray_dir));
 }
 
