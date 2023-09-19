@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:07:21 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/19 17:18:07 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/19 18:01:10 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_ray
 
 typedef	struct s_raycasting
 {
-	t_vec		screen;
+	t_vec		camera;
 	t_ray		ray;
 }	t_raycasting;
 

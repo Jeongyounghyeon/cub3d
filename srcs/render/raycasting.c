@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:29:26 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/19 16:35:11 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/19 18:30:35 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ void	raycasting(t_config *config)
 
 static void	init_data(t_raycasting *rc, t_player *player, int x, int w)
 {
-	double	screen_x;
+	double	camera_x;
 
-	screen_x = 2 * x / (double)w - 1;
-	rc->ray.ray_dir.x = player->dir.x + (rc->screen.x * screen_x);
-	rc->ray.ray_dir.y = player->dir.y + (rc->screen.y * screen_x);
+	camera_x = 2 * x / (double)w - 1;
+	rc->ray.ray_dir.x = player->dir.x + (rc->camera.x * camera_x);
+	rc->ray.ray_dir.y = player->dir.y + (rc->camera.y * camera_x);
 	rc->ray.delta_dist.x = calc_delta_dist(rc->ray.ray_dir.x);
 	rc->ray.delta_dist.y = calc_delta_dist(rc->ray.ray_dir.y);
-	player->map_pos.x = (int)player->pos.x;
-	player->map_pos.y = (int)player->pos.y;
+	player->int_pos.x = (int)player->pos.x;
+	player->int_pos.y = (int)player->pos.y;
 }
 
 static double	calc_delta_dist(double ray_dir)
@@ -70,23 +70,23 @@ static void	init_ray_info(t_raycasting *rc, t_player *player)
 {
 	if (rc->ray.ray_dir.x < 0)
 	{
-		rc->step.x = -1;
-		rc->ray.side_dist.x = (player->pos.x - player->map_pos.x) * rc->ray.delta_dist.x;
+		rc->ray.step.x = -1;
+		rc->ray.side_dist.x = (player->pos.x - player->int_pos.x) * rc->ray.delta_dist.x;
 	}
 	else
 	{
-		rc->step.x = 1;
-		rc->ray.side_dist.x = (player->map_pos.x + 1.0 - player->pos.x) * rc->ray.delta_dist.x;
+		rc->ray.step.x = 1;
+		rc->ray.side_dist.x = (player->int_pos.x + 1.0 - player->pos.x) * rc->ray.delta_dist.x;
 	}
 	if (rc->ray.ray_dir.y < 0)
 	{
-		rc->step.y = -1;
-		rc->ray.side_dist.y = (player->pos.y - player->map_pos.y) * rc->ray.delta_dist.y;
+		rc->ray.step.y = -1;
+		rc->ray.side_dist.y = (player->pos.y - player->int_pos.y) * rc->ray.delta_dist.y;
 	}
 	else
 	{
-		rc->step.y = 1;
-		rc->ray.side_dist.y = (player->map_pos.y + 1.0 - player->pos.y) * rc->ray.delta_dist.y;
+		rc->ray.step.y = 1;
+		rc->ray.side_dist.y = (player->int_pos.y + 1.0 - player->pos.y) * rc->ray.delta_dist.y;
 	}
 }
 
@@ -101,16 +101,16 @@ static int	get_hit_side(t_raycasting *rc, t_player *player, char **map)
 		if (rc->ray.side_dist.x < rc->ray.side_dist.y)
 		{
 			rc->ray.side_dist.x += rc->ray.delta_dist.x;
-			player->map_pos.x += rc->step.x;
+			player->int_pos.x += rc->ray.step.x;
 			side = 0;
 		}
 		else
 		{
 			rc->ray.side_dist.y += rc->ray.delta_dist.y;
-			player->map_pos.y += rc->step.y;
+			player->int_pos.y += rc->ray.step.y;
 			side = 1;
 		}
-		if (map[(int)player->map_pos.y][(int)player->map_pos.x] == WALL)
+		if (map[(int)player->int_pos.y][(int)player->int_pos.x] == WALL)
 			hit = 1;
 	}
 	return (side);

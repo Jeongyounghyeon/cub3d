@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 14:47:36 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/19 17:08:20 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/19 18:29:35 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ void	calc_and_put_window_image(t_config *config, int x, double per_wall_distance
 		int color;
 
 		if (side == 0 && config->rc.ray.ray_dir.x >= 0)
-			color = config->img[id_we].texture[64 * tex_y + tex_x];
+			color = config->textures[id_we].texture[64 * tex_y + tex_x];
 		else if (side == 0 && config->rc.ray.ray_dir.x < 0)
-			color = config->img[id_ea].texture[64 * tex_y + tex_x];
+			color = config->textures[id_ea].texture[64 * tex_y + tex_x];
 		else if (side == 1 && config->rc.ray.ray_dir.y >= 0)
-			color = config->img[id_so].texture[64 * tex_y + tex_x];
+			color = config->textures[id_so].texture[64 * tex_y + tex_x];
 		else
-			color = config->img[id_no].texture[64 * tex_y + tex_x];
+			color = config->textures[id_no].texture[64 * tex_y + tex_x];
 		config->window.buf[y][x] = color;
 	}
 }

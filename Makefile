@@ -17,22 +17,13 @@ SRCS_DIR =		config \
 				map \
 				render \
 				get_next_line \
-				exception \
-				config \
-				event \
 				xmem
 
 CFILES =		main.c \
 				set_config.c \
-				config_img.c \
-				config_player.c \
-				window_init.c \
-				window_setting.c \
-				window_draw.c \
-				window_draw_one_line.c \
-				draw_image_to_window.c \
 				calc_and_put_window_image.c \
-				event_hook_handler.c \
+				event_handler.c \
+				rendering.c \
 				raycasting.c \
 				\
 				create_map.c \
@@ -54,10 +45,7 @@ CFILES =		main.c \
 				xsplit.c \
 				free_vector_arr.c \
 				\
-				exception_handler.c \
-				wasd_event_handler.c \
-				arrow_event_handler.c \
-				xmalloc.c
+				exception_handler.c
 
 CFILES :=		$(addprefix $(SRCS_RT_DIR), $(CFILES))
 
