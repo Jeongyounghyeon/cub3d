@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:29:26 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 20:51:20 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/16 13:16:19 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ void	raycasting(t_config *config)
 		else
 			perp_wall_dist = (config->player.map_pos.y - config->player.pos.y + (1 - config->rc.step.y) / 2) / config->rc.ray.ray_dir.y;
 			// perp_wall_dist = ray->side_dist.y - ray->delta_dist.y;
-		calc_and_draw_one_line(config, x, perp_wall_dist);
+		calc_and_put_window_image(config, x, perp_wall_dist, side);
+
+		// calc_and_draw_one_line(config, x, perp_wall_dist);
 		x++;
 	}
 	// clear();

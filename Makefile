@@ -30,9 +30,10 @@ CFILES =		main.c \
 				window_setting.c \
 				window_draw.c \
 				window_draw_one_line.c \
+				draw_image_to_window.c \
+				calc_and_put_window_image.c \
 				event_hook_handler.c \
 				raycasting.c \
-				calc_and_draw_one_line.c \
 				\
 				create_map.c \
 				valid_extension.c \

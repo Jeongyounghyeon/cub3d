@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   window.h                                           :+:      :+:    :+:   */
+/*   draw_image_to_window.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 14:44:03 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/19 15:09:50 by youjeong         ###   ########.fr       */
+/*   Created: 2023/09/15 14:29:53 by youjeong          #+#    #+#             */
+/*   Updated: 2023/09/16 12:48:00 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WINDOW_H
-# define WINDOW_H
+#include "config.h"
+#include "mlx.h"
 
-typedef struct s_win	t_win;
-typedef struct s_img	t_img;
+void	draw_image_to_window(t_config *config)
+{
+	for (int y = 0; y < WINDOW_HEIGHT; y++)
+		for (int x = 0; x < WINDOW_WIDTH; x++)
+			config->screen_img.data[y * WINDOW_WIDTH + x] = config->window.buf[y][x];
 
-/* mlx 구조체 */
-typedef struct s_win {
-	void	*mlx;
-	void	*win;
-	int		buf[480][640];
-}	t_win;
-
-/* images */
-typedef struct s_img {
-	void	*img;
-	int		*data;
-	int		size_line;
-	int		bpp;
-	int		endian;
-	int		width;
-	int		height;
-	int		texture[64 * 64];
-}t_img;
-
-#endif
+	mlx_put_image_to_window(config->window.mlx, config->window.win, config->screen_img.img, 0, 0);
+}
