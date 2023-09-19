@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:44:03 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/19 17:02:46 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/19 19:41:43 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,5 @@ typedef struct s_img {
 	int		height;
 	int		texture[TEXTURE_HEIGHT * TEXTURE_WIDTH];
 }t_img;
-
-void	window_init(t_win *window);
 
 #endif

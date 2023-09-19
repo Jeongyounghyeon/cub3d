@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:25:10 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/19 18:50:17 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/19 19:25:30 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,37 @@
 #include "config.h"
 
 int			event_handler(int key_code, t_config *config);
-static void	vt_move_event(char **map, t_player *player, int new_dir_x, int new_dir_y);
+
+void		left_event_handler(t_config *config);
+void		right_event_handler(t_config *config);
+static void	rotate_vector(t_vec *vector, double theta);
+void	w_event_handler(t_config *config);
+void	a_event_handler(t_config *config);
+void	s_event_handler(t_config *config);
+void	d_event_handler(t_config *config);
+
+/*static void	vt_move_event(char **map, t_player *player, int new_dir_x, int new_dir_y);
 static void	hr_move_h_event(char **map, t_player *player, int new_dir_x, int new_dir_y);
-static void	rotate_event(t_vec *vector, double theta);
+static void	rotate_event(t_vec *vector, double theta);*/
 
 int	event_handler(int key_code, t_config *config)
 {
-	char		**map;
-	t_player	*player;
-
-	map = config->map;
-	player = &config->player;
 	if (key_code == KEY_W)
-		hr_move_h_event(map, player, 1, 1);
+		w_event_handler(config);
 	else if (key_code == KEY_A)
-		vt_move_event(map, player, -1, 1);
+		a_event_handler(config);
 	else if (key_code == KEY_S)
-		hr_move_h_event(map, player, -1, -1);
+		s_event_handler(config);
 	else if (key_code == KEY_D)
-		vt_move_event(map, player, 1, -1);
+		d_event_handler(config);
 	else if (key_code == KEY_LEFT)
 	{
-		rotate_event(&config->player.dir, ROT_SPEED);
+		left_event_handler(config);
 		//rotate_event(&config->rc.camera, ROT_SPEED);
 	}
 	else if (key_code == KEY_RIGHT)
 	{
-		rotate_event(&config->player.dir, -ROT_SPEED);
+		right_event_handler(config);
 		//rotate_event(&config->rc.camera, -ROT_SPEED);
 	}
 	else if (key_code == KEY_ESC)
@@ -49,7 +53,7 @@ int	event_handler(int key_code, t_config *config)
 	return (0);
 }
 
-static void	hr_move_h_event(char **map, t_player *player, int new_dir_x, int new_dir_y)
+/*static void	hr_move_h_event(char **map, t_player *player, int new_dir_x, int new_dir_y)
 {
 	t_coord		*pos;
 	int			dir_x;
@@ -86,4 +90,86 @@ static void	rotate_event(t_vec *vector, double theta)
 	vector_x = vector->x;
 	vector->x = vector->x * cos(theta) - vector->y * sin(theta);
 	vector->y = vector_x * sin(theta) + vector->y * cos(theta);
+}*/
+
+
+void	left_event_handler(t_config *config)
+{
+	rotate_vector(&config->player.dir, ROT_SPEED);
+	rotate_vector(&config->rc.camera, ROT_SPEED);
+}
+
+void	right_event_handler(t_config *config)
+{
+	rotate_vector(&config->player.dir, -ROT_SPEED);
+	rotate_vector(&config->rc.camera, -ROT_SPEED);
+}
+
+static void	rotate_vector(t_vec *vector, double theta)
+{
+	double	vector_x;
+
+	vector_x = vector->x;
+	vector->x = vector->x * cos(theta) - vector->y * sin(theta);
+	vector->y = vector_x * sin(theta) + vector->y * cos(theta);
+}
+
+void	w_event_handler(t_config *config)
+{
+	char		**map;
+	t_coord		*pos;
+	t_vec	*dir;
+
+	map = config->map;
+	pos = &config->player.pos;
+	dir = &config->player.dir;
+	if (map[(int)pos->y][(int)(pos->x + dir->x * MOVE_SPEED)] != WALL)
+		pos->x += dir->x * MOVE_SPEED;
+	if (map[(int)(pos->y + dir->y * MOVE_SPEED)][(int)(pos->x)] != WALL)
+		pos->y += dir->y * MOVE_SPEED;
+}
+
+void	a_event_handler(t_config *config)
+{
+	char		**map;
+	t_coord		*pos;
+	t_vec	*dir;
+
+	map = config->map;
+	pos = &config->player.pos;
+	dir = &config->player.dir;
+	if (map[(int)pos->y][(int)(pos->x - dir->x * MOVE_SPEED)] != WALL)
+		pos->x -= dir->y * MOVE_SPEED;
+	if (map[(int)(pos->y + dir->y * MOVE_SPEED)][(int)(pos->x)] != WALL)
+		pos->y += dir->x * MOVE_SPEED;
+}
+
+void	s_event_handler(t_config *config)
+{
+	char		**map;
+	t_coord		*pos;
+	t_vec	*dir;
+
+	map = config->map;
+	pos = &config->player.pos;
+	dir = &config->player.dir;
+	if (map[(int)pos->y][(int)(pos->x - dir->x * MOVE_SPEED)] != WALL)
+		pos->x -= dir->x * MOVE_SPEED;
+	if (map[(int)(pos->y - dir->y * MOVE_SPEED)][(int)(pos->x)] != WALL)
+		pos->y -= dir->y * MOVE_SPEED;
+}
+
+void	d_event_handler(t_config *config)
+{
+	char		**map;
+	t_coord		*pos;
+	t_vec	*dir;
+
+	map = config->map;
+	pos = &config->player.pos;
+	dir = &config->player.dir;
+	if (map[(int)pos->y][(int)(pos->x + dir->x * MOVE_SPEED)] != WALL)
+		pos->x += dir->y * MOVE_SPEED;
+	if (map[(int)(pos->y - dir->y * MOVE_SPEED)][(int)(pos->x)] != WALL)
+		pos->y -= dir->x * MOVE_SPEED;
 }

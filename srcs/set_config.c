@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 17:27:08 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/19 18:36:48 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/19 19:44:09 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	set_config(t_config *config, t_map *map)
 	config->map = map->contents;
 	set_config_textures(config, map->elements);
 	set_config_player(&config->player, map);
+	config->rc.camera.x = config->player.dir.y;
+	config->rc.camera.y = config->player.dir.x * (-FOV);
 	config->screen.img = mlx_new_image(config->window.mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	config->screen.data = (int *)mlx_get_data_addr(config->screen.img, &config->screen.bpp, &config->screen.size_line, &config->screen.endian);
 }
