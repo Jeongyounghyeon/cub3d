@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:11:24 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/19 15:10:04 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:00:44 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 # define CONFIG_H
 
 # include "window.h"
-# include "play.h"
+# include "event.h"
 # include "render.h"
 # include "map.h"
-
-# define WINDOW_WIDTH	640
-# define WINDOW_HEIGHT	480
 
 typedef struct s_config	t_config;
 
@@ -34,7 +31,7 @@ typedef struct s_config {
 }	t_config;
 
 void	set_config(t_config *config, t_map *map);
-void	config_img(t_config *config, char	*elements[6]);
+void	config_img(t_config *config, char *elements[6]);
 void	config_player(t_player *player, t_map *map);
 
 

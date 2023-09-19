@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calc_and_put_window_image.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 14:47:36 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/19 14:54:24 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:08:20 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ void	calc_and_put_window_image(t_config *config, int x, double per_wall_distance
 		draw_range[0] = 0;
 	if (draw_range[1] >= WINDOW_HEIGHT)
 		draw_range[1] = WINDOW_HEIGHT - 1;
-
-
-	// int	tex_num = config->map[(int)config->player.map_pos.y][(int)config->player.map_pos.x] - '0';
 	
 	double wall_x;
 	if (side == 0)

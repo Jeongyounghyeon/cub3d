@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   play.h                                             :+:      :+:    :+:   */
+/*   event.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:21:55 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/13 19:55:34 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:59:01 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PLAY_H
 # define PLAY_H
 
-// # include "config.h"
-# include "coordinate.h"
+# include "system.h"
 
 # define KEY_W				13
 # define KEY_A				0
@@ -37,8 +36,8 @@
 typedef struct s_player
 {
 	t_coord		pos;
-	t_vector	dir;
-	t_coord		map_pos;
+	t_vec		dir;
+	t_coord		int_pos;
 }	t_player;
 
 

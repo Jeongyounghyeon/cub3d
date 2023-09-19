@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_draw.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:34:20 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/16 12:00:21 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/19 17:03:53 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,7 @@
 
 int	window_draw(t_config *config)
 {
-	// screen_init(&config->window);
 	raycasting(config);
 	draw_image_to_window(config);
 	return (0);
 }
-
-// static void	screen_init(t_win *window)
-// {
-// 	for (int y = 0; y < WINDOW_HEIGHT; y++) {
-// 		for (int x = 0; x < WINDOW_WIDTH; x++) {
-// 			mlx_pixel_put(window->mlx, window->win, x, y, 0xFFFFFF);
-// 		}
-// 	}
-// }
