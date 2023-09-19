@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 17:27:08 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/19 19:44:09 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/19 19:53:48 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static void	set_config_a_texture(t_img *texture, void *mlx, t_config *config, ch
 	if (!texture->img)
 		exception_handler(err_ele_info_img);
 	texture->data = (int *)mlx_get_data_addr(texture->img, &texture->bpp, &texture->size_line, &texture->endian);
+
 	y = 0;
 	while (y < texture->height)
 	{
