@@ -12,16 +12,14 @@ BUILD_LIBFT = make -C libft $@
 
 SRCS_RT_DIR =	srcs/
 
-SRCS_DIR =		config \
-				window \
-				map \
-				render \
+SRCS_DIR =		map \
+				rendering \
 				get_next_line \
 				xmem
 
 CFILES =		main.c \
 				set_config.c \
-				calc_and_put_window_image.c \
+				fill_screen_buffer.c \
 				event_handler.c \
 				rendering.c \
 				raycasting.c \

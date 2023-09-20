@@ -6,12 +6,12 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:21:55 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/19 18:26:21 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/20 19:40:44 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLAY_H
-# define PLAY_H
+#ifndef EVENT_H
+# define EVENT_H
 
 # include "system.h"
 
@@ -37,7 +37,7 @@ typedef struct s_player
 {
 	t_coord		pos;
 	t_vec		dir;
-	t_coord		int_pos;
+	t_coord		map_pos;
 }	t_player;
 
 #endif

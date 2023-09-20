@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 17:25:50 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 18:27:51 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/20 19:41:06 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	parse_rgb(t_map *map)
 
 static unsigned long long	parse_r_g_b(char *rgb)
 {
-	int	i;
+	int						i;
 	char					**sep_rgb;
 	unsigned long long		numeric_rgb[3];
 	unsigned long long		hex_rgb;
@@ -44,7 +44,7 @@ static unsigned long long	parse_r_g_b(char *rgb)
 		i++;
 	}
 	hex_rgb = ((numeric_rgb[0] & 0xff) << 24) + ((numeric_rgb[1] & 0xff) << 16)
-			+ ((numeric_rgb[2] & 0xff) << 8) + (0xff);
+		+ ((numeric_rgb[2] & 0xff) << 8) + (0xff);
 	free_vector_arr(sep_rgb);
 	return (hex_rgb);
 }

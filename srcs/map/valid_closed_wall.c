@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:00:17 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 17:03:00 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/20 19:41:30 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 #include "exception.h"
 
 void			valid_closed_wall(t_map *map);
-static t_bool	valid_closed_wall_internal(char **contents, int *lens_4_compare, int w, int h);
+static t_bool	valid_closed_wall_internal(char **contents,
+					int *lens_4_compare, int w, int h);
 static t_bool	valid_based_space(char **contents, int w, int h);
-static t_bool	valid_based_blank(char **contents, int w, int h, int compare_len);
+static t_bool	valid_based_blank(char **contents,
+					int w, int h, int compare_len);
 
 void	valid_closed_wall(t_map *map)
 {
@@ -36,7 +38,8 @@ void	valid_closed_wall(t_map *map)
 		w = 0;
 		while (map->contents[h][w])
 		{
-			if (valid_closed_wall_internal(map->contents, len_set_4_comp, w, h) == false)
+			if (valid_closed_wall_internal(map->contents,
+					len_set_4_comp, w, h) == false)
 				exception_handler(err_wall);
 			w++;
 		}
@@ -46,7 +49,8 @@ void	valid_closed_wall(t_map *map)
 	}
 }
 
-static t_bool	valid_closed_wall_internal(char **contents, int *len_set_4_comp, int w, int h)
+static t_bool	valid_closed_wall_internal(char **contents,
+					int *len_set_4_comp, int w, int h)
 {
 	int	ignore_len;
 
@@ -91,7 +95,8 @@ static t_bool	valid_based_space(char **contents, int w, int h)
 	}
 }
 
-static t_bool	valid_based_blank(char **contents, int w, int h, int compare_len)
+static t_bool	valid_based_blank(char **contents,
+					int w, int h, int compare_len)
 {
 	if (w == -1 || h == -1 || w > compare_len)
 	{

@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:25:10 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/19 20:21:44 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/20 19:47:36 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 
 int			event_handler(int key_code, t_config *config);
 
-static void	hr_move_h_event(char **map, t_player *player, int new_dir_x, int new_dir_y);
-static void	vt_move_event(char **map, t_player *player, int new_dir_x, int new_dir_y);
-static void	rotate_event(t_vec *vector, double theta);
+static void	hr_move_h_event(char **map,
+				t_player *player, int new_dir_x, int new_dir_y);
+static void	vt_move_event(char **map,
+				t_player *player, int new_dir_x, int new_dir_y);
+static void	rotate_event(t_config *config, double radian);
+static void	rotate_vector(t_vec *vector, double theta);
 
 int	event_handler(int key_code, t_config *config)
 {
@@ -31,21 +34,16 @@ int	event_handler(int key_code, t_config *config)
 	else if (key_code == KEY_D)
 		vt_move_event(config->map, &config->player, -1, 1);
 	else if (key_code == KEY_LEFT)
-	{
-		rotate_event(&config->player.dir, ROT_SPEED);
-		rotate_event(&config->rc.camera, ROT_SPEED);
-	}
+		rotate_event(config, ROT_SPEED);
 	else if (key_code == KEY_RIGHT)
-	{
-		rotate_event(&config->player.dir, -ROT_SPEED);
-		rotate_event(&config->rc.camera, -ROT_SPEED);
-	}
+		rotate_event(config, -ROT_SPEED);
 	else if (key_code == KEY_ESC)
 		exit(0);
 	return (0);
 }
 
-static void	hr_move_h_event(char **map, t_player *player, int new_dir_x, int new_dir_y)
+static void	hr_move_h_event(char **map,
+			t_player *player, int new_dir_x, int new_dir_y)
 {
 	t_coord		*pos;
 	double		dir_x;
@@ -60,7 +58,8 @@ static void	hr_move_h_event(char **map, t_player *player, int new_dir_x, int new
 		pos->y += dir_y * MOVE_SPEED;
 }
 
-static void	vt_move_event(char **map, t_player *player, int new_dir_x, int new_dir_y)
+static void	vt_move_event(char **map,
+			t_player *player, int new_dir_x, int new_dir_y)
 {
 	t_coord		*pos;
 	double		dir_x;
@@ -75,7 +74,13 @@ static void	vt_move_event(char **map, t_player *player, int new_dir_x, int new_d
 		pos->y += dir_x * MOVE_SPEED;
 }
 
-static void	rotate_event(t_vec *vector, double theta)
+static void	rotate_event(t_config *config, double radian)
+{
+	rotate_vector(&config->player.dir, radian);
+	rotate_vector(&config->rc.camera, radian);
+}
+
+static void	rotate_vector(t_vec *vector, double theta)
 {
 	double	vector_x;
 

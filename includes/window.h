@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:44:03 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/19 19:54:26 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/20 19:45:23 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 # define TEXTURE_WIDTH	64
 # define TEXTURE_HEIGHT	64
-
 
 typedef struct s_win	t_win;
 typedef struct s_img	t_img;
@@ -39,7 +38,7 @@ typedef struct s_img {
 	int		endian;
 	int		width;
 	int		height;
-	int		texture[64*64];
+	int		texture[TEXTURE_HEIGHT * TEXTURE_WIDTH];
 }t_img;
 
 #endif
