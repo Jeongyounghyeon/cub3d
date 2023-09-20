@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:25:10 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 19:47:36 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/20 21:56:09 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,12 @@ static void	hr_move_h_event(char **map,
 	pos = &player->pos;
 	dir_x = player->dir.x * new_dir_x;
 	dir_y = player->dir.y * new_dir_y;
-	if (map[(int)pos->y][(int)(pos->x + dir_x * MOVE_SPEED)] != WALL)
+	if (map[(int)(pos->y + dir_y * MOVE_SPEED)] \
+			[(int)(pos->x + dir_x * MOVE_SPEED)] != WALL)
+	{
 		pos->x += dir_x * MOVE_SPEED;
-	if (map[(int)(pos->y + dir_y * MOVE_SPEED)][(int)(pos->x)] != WALL)
 		pos->y += dir_y * MOVE_SPEED;
+	}
 }
 
 static void	vt_move_event(char **map,
@@ -68,10 +70,12 @@ static void	vt_move_event(char **map,
 	pos = &player->pos;
 	dir_x = player->dir.x * new_dir_x;
 	dir_y = player->dir.y * new_dir_y;
-	if (map[(int)pos->y][(int)(pos->x + dir_x * MOVE_SPEED)] != WALL)
+	if (map[(int)(pos->y + dir_x * MOVE_SPEED)] \
+	[(int)(pos->x + dir_y * MOVE_SPEED)] != WALL)
+	{
 		pos->x += dir_y * MOVE_SPEED;
-	if (map[(int)(pos->y + dir_y * MOVE_SPEED)][(int)(pos->x)] != WALL)
 		pos->y += dir_x * MOVE_SPEED;
+	}
 }
 
 static void	rotate_event(t_config *config, double radian)
