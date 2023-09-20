@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:44:03 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 21:58:27 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/20 22:02:31 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_img	t_img;
 typedef struct s_win {
 	void	*mlx;
 	void	*win;
-	int		buf[WINDOW_HEIGHT][WINDOW_WIDTH];
 }	t_win;
 
 /* images */

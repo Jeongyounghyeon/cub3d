@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:41:25 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/20 22:00:32 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/20 22:09:21 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		fill_screen_buffer(t_config *config,
 				int x, double per_wall_distance, int side);
 static void	get_texture_height(int line_height, int *draw_range);
 static int	get_tex_x(t_config *config, double per_wall_distance, int side);
-static void	fill_screen_buffer_bg(int buf[][WINDOW_WIDTH], int x);
+static void	fill_screen_data_bg(int *data, int x);
 static int	get_color(t_config *config, int tex_y, int tex_x, int side);
 
 void	fill_screen_buffer(t_config *config,
@@ -34,12 +34,12 @@ void	fill_screen_buffer(t_config *config,
 	get_texture_height(line_height, draw_range);
 	step = 1.0 * 64 / line_height;
 	tex_pos = (draw_range[0] - WINDOW_HEIGHT / 2 + line_height / 2) * step;
-	fill_screen_buffer_bg(config->window.buf, x);
+	fill_screen_data_bg(config->screen.data, x);
 	y = draw_range[0];
 	while (y < draw_range[1])
 	{
 		tex_pos += step;
-		config->window.buf[y][x] = get_color(config,
+		config->screen.data[y * WINDOW_WIDTH + x] = get_color(config,
 				(int)tex_pos & (64 - 1),
 				get_tex_x(config, per_wall_distance, side),
 				side);
@@ -76,15 +76,15 @@ static int	get_tex_x(t_config *config, double per_wall_distance, int side)
 	return (tex_x);
 }
 
-static void	fill_screen_buffer_bg(int buf[][WINDOW_WIDTH], int x)
+static void	fill_screen_data_bg(int *data, int x)
 {
 	int	y;
 
 	y = 0;
 	while (y < WINDOW_HEIGHT / 2)
 	{
-		buf[y][x] = 0xFFFFFF;
-		buf[WINDOW_HEIGHT - y - 1][x] = 0x000000;
+		data[y * WINDOW_WIDTH + x] = 0xFFFFFF;
+		data[(WINDOW_HEIGHT - y - 1) * WINDOW_WIDTH + x] = 0x000000;
 		y++;
 	}
 }
