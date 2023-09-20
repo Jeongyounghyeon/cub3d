@@ -20,9 +20,11 @@ SRCS_DIR =		map \
 CFILES =		main.c \
 				set_config.c \
 				fill_screen_data.c \
-				event_handler.c \
 				rendering.c \
 				raycasting.c \
+				\
+				update_player.c \
+				event_handler.c \
 				\
 				create_map.c \
 				valid_extension.c \

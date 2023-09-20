@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:21:55 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 19:40:44 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/20 22:47:19 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define EVENT_H
 
 # include "system.h"
+# include "bool.h"
 
 # define KEY_W				13
 # define KEY_A				0
@@ -26,6 +27,7 @@
 # define KEY_ESC			53
 
 # define EVENT_KEY_PRESS	2
+# define EVENT_KEY_RELEASE	3
 # define EVENT_KEY_EXIT		17
 
 # define MOVE_SPEED			0.05
@@ -33,11 +35,22 @@
 
 # define WALL				'1'
 
-typedef struct s_player
-{
+typedef struct s_player {
 	t_coord		pos;
 	t_vec		dir;
 	t_coord		map_pos;
 }	t_player;
+
+typedef struct s_key {
+	t_bool	w;
+	t_bool	a;
+	t_bool	s;
+	t_bool	d;
+	t_bool	left;
+	t_bool	right;
+}t_key;
+
+int	press_event_handler(int key_code, t_key *key);
+int	release_event_handler(int key_code, t_key *key);
 
 #endif

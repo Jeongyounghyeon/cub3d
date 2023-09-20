@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 17:27:08 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 22:00:51 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/20 23:08:55 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ void		set_config(t_config *config, t_map *map);
 static void	set_config_player(t_player *player, t_map *map);
 static void	set_config_textures(t_config *config, char *elements[6]);
 static void	set_config_a_texture(t_img *texture, void *mlx, char *path);
+static void	set_config_key(t_key *key);
 
 void	set_config(t_config *config, t_map *map)
 {
 	config->map = map->contents;
 	set_config_textures(config, map->elements);
 	set_config_player(&config->player, map);
+	set_config_key(&config->key);
 	config->rc.camera.x = config->player.dir.y * (-FOV);
 	config->rc.camera.y = config->player.dir.x * (-FOV);
 	config->screen.img
@@ -88,4 +90,14 @@ static void	set_config_player(t_player *player, t_map *map)
 		player->dir.x = -1;
 		player->dir.y = 0;
 	}
+}
+
+static void	set_config_key(t_key *key)
+{
+	key->w = false;
+	key->a = false;
+	key->s = false;
+	key->d = false;
+	key->left = false;
+	key->right = false;
 }

@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:11:24 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 22:12:41 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/20 22:49:05 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ typedef struct s_config {
 	t_player		player;
 	t_raycasting	rc;
 	char			**map;
+	t_key			key;
 }	t_config;
 
 void	set_config(t_config *config, t_map *map);
-int		event_handler(int key_code, t_config *config);
 
 int		rendering(t_config *config);
 void	raycasting(t_config *config);
+void	update_player(t_config *config);
 void	fill_screen_data(t_config *config,
 			int x, double per_wall_distance, int side);
 
