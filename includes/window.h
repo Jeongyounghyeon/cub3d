@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:44:03 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 19:45:23 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/20 21:58:27 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_img {
 	int		endian;
 	int		width;
 	int		height;
-	int		texture[TEXTURE_HEIGHT * TEXTURE_WIDTH];
 }t_img;
 
 #endif

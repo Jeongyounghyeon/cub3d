@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_screen_buffer.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:41:25 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/20 19:14:59 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/20 22:00:32 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,12 @@ static int	get_color(t_config *config, int tex_y, int tex_x, int side)
 	int	color;
 
 	if (side == 0 && config->rc.ray.ray_dir.x >= 0)
-		color = config->textures[id_we].texture[64 * tex_y + tex_x];
+		color = config->textures[id_we].data[64 * tex_y + tex_x];
 	else if (side == 0 && config->rc.ray.ray_dir.x < 0)
-		color = config->textures[id_ea].texture[64 * tex_y + tex_x];
+		color = config->textures[id_ea].data[64 * tex_y + tex_x];
 	else if (side == 1 && config->rc.ray.ray_dir.y >= 0)
-		color = config->textures[id_so].texture[64 * tex_y + tex_x];
+		color = config->textures[id_so].data[64 * tex_y + tex_x];
 	else
-		color = config->textures[id_no].texture[64 * tex_y + tex_x];
+		color = config->textures[id_no].data[64 * tex_y + tex_x];
 	return (color);
 }
