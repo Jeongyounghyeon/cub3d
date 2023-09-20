@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:29:26 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/20 19:40:12 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/20 22:12:46 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	raycasting(t_config *config)
 			perp_wall_dist = rc->ray.side_dist.x - rc->ray.delta_dist.x;
 		else
 			perp_wall_dist = rc->ray.side_dist.y - rc->ray.delta_dist.y;
-		fill_screen_buffer(config, x, perp_wall_dist, side);
+		fill_screen_data(config, x, perp_wall_dist, side);
 		x++;
 	}
 }

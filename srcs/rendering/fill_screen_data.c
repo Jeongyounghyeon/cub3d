@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_screen_buffer.c                               :+:      :+:    :+:   */
+/*   fill_screen_data.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:41:25 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/20 22:09:21 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/20 22:12:04 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 #include "config.h"
 
-void		fill_screen_buffer(t_config *config,
+void		fill_screen_data(t_config *config,
 				int x, double per_wall_distance, int side);
 static void	get_texture_height(int line_height, int *draw_range);
 static int	get_tex_x(t_config *config, double per_wall_distance, int side);
 static void	fill_screen_data_bg(int *data, int x);
 static int	get_color(t_config *config, int tex_y, int tex_x, int side);
 
-void	fill_screen_buffer(t_config *config,
+void	fill_screen_data(t_config *config,
 			int x, double per_wall_distance, int side)
 {
 	int		line_height;

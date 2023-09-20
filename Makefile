@@ -19,7 +19,7 @@ SRCS_DIR =		map \
 
 CFILES =		main.c \
 				set_config.c \
-				fill_screen_buffer.c \
+				fill_screen_data.c \
 				event_handler.c \
 				rendering.c \
 				raycasting.c \
