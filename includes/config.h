@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 16:11:24 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 22:49:05 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/21 14:05:54 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,15 @@
 typedef struct s_config	t_config;
 
 typedef struct s_config {
-	t_win			window;
-	t_img			screen;
-	t_img			textures[4];
-	t_player		player;
-	t_raycasting	rc;
-	char			**map;
-	t_key			key;
+	t_win					window;
+	t_img					screen;
+	t_img					textures[4];
+	t_player				player;
+	t_raycasting			rc;
+	char					**map;
+	t_key					key;
+	unsigned long long		f_rgb;
+	unsigned long long		c_rgb;
 }	t_config;
 
 void	set_config(t_config *config, t_map *map);

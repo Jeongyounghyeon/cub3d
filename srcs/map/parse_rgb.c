@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_rgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 17:25:50 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/20 19:41:06 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/09/21 14:24:44 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ static unsigned long long	parse_r_g_b(char *rgb)
 		numeric_rgb[i] = valid_r_g_b(sep_rgb[i]);
 		i++;
 	}
-	hex_rgb = ((numeric_rgb[0] & 0xff) << 24) + ((numeric_rgb[1] & 0xff) << 16)
-		+ ((numeric_rgb[2] & 0xff) << 8) + (0xff);
+	hex_rgb = ((numeric_rgb[0] & 0xff) << 16) + ((numeric_rgb[1] & 0xff) << 8)
+		+ ((numeric_rgb[2] & 0xff));
 	free_vector_arr(sep_rgb);
 	return (hex_rgb);
 }

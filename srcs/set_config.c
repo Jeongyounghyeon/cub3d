@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 17:27:08 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 23:08:55 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/21 14:25:44 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	set_config_key(t_key *key);
 void	set_config(t_config *config, t_map *map)
 {
 	config->map = map->contents;
+	config->f_rgb = map->f_rgb;
+	config->c_rgb = map->c_rgb;
 	set_config_textures(config, map->elements);
 	set_config_player(&config->player, map);
 	set_config_key(&config->key);
