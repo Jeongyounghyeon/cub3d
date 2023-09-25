@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: juyyang <juyyang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:05:51 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 22:58:51 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:01:36 by juyyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ void	initailze(t_config *config)
 int	main(int argc, char **argv)
 {
 	t_config	config;
+	t_map		*map;
 
 	if (argc != 2)
 		return (1);
 	initailze(&config);
-	set_config(&config, create_map(argv[1]));
+	map = create_map(argv[1]);
+	set_config(&config, map);
 	mlx_loop_hook(config.window.mlx, &rendering, &config);
 	mlx_loop(config.window.mlx);
 	return (0);
