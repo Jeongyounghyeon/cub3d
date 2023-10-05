@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:05:51 by youjeong          #+#    #+#             */
-/*   Updated: 2023/10/05 15:54:45 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/10/05 17:18:07 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	t_map		*map;
 
 	if (argc != 2)
-		return (1);
+		exception_handler(err_arg);
 	initailze(&config);
 	map = create_map(argv[1]);
 	set_config(&config, map);
