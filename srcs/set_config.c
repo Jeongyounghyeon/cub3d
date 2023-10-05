@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 17:27:08 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/21 14:25:44 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:21:33 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	set_config(t_config *config, t_map *map)
 	config->rc.camera.y = config->player.dir.x * (-FOV);
 	config->screen.img
 		= mlx_new_image(config->window.mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
+	if (config->screen.img == 0)
+		exit(1);
 	config->screen.data = (int *)mlx_get_data_addr(config->screen.img,
 			&config->screen.bpp,
 			&config->screen.size_line,
