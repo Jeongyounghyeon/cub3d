@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:05:51 by youjeong          #+#    #+#             */
-/*   Updated: 2023/10/05 15:54:45 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/10/05 19:30:35 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	initailze(t_config *config)
 				&press_event_handler, &config->key);
 	mlx_hook(config->window.win, EVENT_KEY_RELEASE, 0, \
 				&release_event_handler, &config->key);
+	mlx_hook(config->window.win, EVENT_KEY_EXIT, 0, \
+				&exit_event_handler, &config->key);
 }
 
 int	main(int argc, char **argv)

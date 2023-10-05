@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:21:55 by youjeong          #+#    #+#             */
-/*   Updated: 2023/10/05 15:52:17 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/10/05 19:31:39 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_key {
 	t_bool	right;
 }t_key;
 
+int	exit_event_handler(int key_code, void *param);
 int	press_event_handler(int key_code, t_key *key);
 int	release_event_handler(int key_code, t_key *key);
 

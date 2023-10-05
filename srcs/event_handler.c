@@ -6,13 +6,20 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 22:36:47 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 22:59:05 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/10/05 19:31:57 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 #include "event.h"
+
+int	exit_event_handler(int key_code, void *param)
+{
+	(void)key_code;
+	(void)param;
+	exit(0);
+}
 
 int	press_event_handler(int key_code, t_key *key)
 {
