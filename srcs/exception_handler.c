@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 16:44:37 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/19 18:31:57 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/10/05 15:55:38 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static char	*ft_strerror(t_errno errno)
 	else if (errno == err_player)
 		return ("There is no player");
 	else if (errno == err_general)
-		return (0);
+		return ("Fatal: sys-call or mlx");
 	else
 		return (0);
 }

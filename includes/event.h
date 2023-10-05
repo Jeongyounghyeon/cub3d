@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:21:55 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 22:47:19 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:52:17 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 # define EVENT_KEY_RELEASE	3
 # define EVENT_KEY_EXIT		17
 
-# define MOVE_SPEED			0.05
-# define ROT_SPEED			0.05
+# define MOVE_SPEED			0.02
+# define ROT_SPEED			0.02
 
 # define WALL				'1'
 

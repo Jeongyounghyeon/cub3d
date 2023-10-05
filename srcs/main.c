@@ -3,25 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:05:51 by youjeong          #+#    #+#             */
-/*   Updated: 2023/10/05 14:03:48 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:54:45 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx.h"
+
 #include "config.h"
+#include "exception.h"
 
 void	initailze(t_config *config)
 {
 	config->window.mlx = mlx_init();
 	if (config->window.mlx == 0)
-		exit(1);
+		exception_handler(err_general);
 	config->window.win = mlx_new_window(config->window.mlx,
 			WINDOW_WIDTH, WINDOW_HEIGHT, "cub3d");
 	if (config->window.win == 0)
-		exit(1);
+		exception_handler(err_general);
 	mlx_hook(config->window.win, EVENT_KEY_PRESS, 0, \
 				&press_event_handler, &config->key);
 	mlx_hook(config->window.win, EVENT_KEY_RELEASE, 0, \
