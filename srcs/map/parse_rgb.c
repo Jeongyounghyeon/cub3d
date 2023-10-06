@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_rgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 17:25:50 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/21 14:24:44 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/10/06 16:25:03 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ static unsigned long long	parse_r_g_b(char *rgb)
 	unsigned long long		hex_rgb;
 
 	sep_rgb = xsplit(rgb, ',');
+	i = 0;
+	while (sep_rgb[i])
+		i++;
+	if (i != 3)
+		exception_handler(err_ele_info_rgb);
 	i = 0;
 	while (i < 3)
 	{

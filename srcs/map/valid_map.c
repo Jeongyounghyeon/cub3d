@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:32:03 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/13 17:40:07 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/10/06 16:22:26 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	valid_map_contents(t_map *map)
 		exception_handler(err_map);
 	while (contents[h])
 	{
-		if (is_empty_line(contents[h]) == true)
+		if (!contents[h] || !*contents[h] || is_empty_line(contents[h]) == true)
 			exception_handler(err_map);
 		w = 0;
 		while (contents[h][w])
