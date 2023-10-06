@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_config.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
+/*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 17:27:08 by youjeong          #+#    #+#             */
-/*   Updated: 2023/10/05 16:04:31 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/10/06 15:57:14 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ static void	set_config_a_texture(t_img *texture,
 
 static void	set_config_player(t_player *player, t_map *map)
 {
-	player->pos.x = map->start_x;
-	player->pos.y = map->start_y;
+	player->pos.x = map->start_x + 0.5;
+	player->pos.y = map->start_y + 0.5;
 	player->map_pos.x = (int)player->pos.x;
 	player->map_pos.y = (int)player->pos.y;
 	if (map->start_dir == 'N')

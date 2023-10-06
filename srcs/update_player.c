@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:25:10 by youjeong          #+#    #+#             */
-/*   Updated: 2023/09/20 23:14:41 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/10/06 16:27:41 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ static void	hr_move_h_update(char **map,
 	pos = &player->pos;
 	dir_x = player->dir.x * new_dir_x;
 	dir_y = player->dir.y * new_dir_y;
-	if (map[(int)(pos->y + dir_y * MOVE_SPEED)][(int)pos->x] != WALL)
+	if (map[(int)(pos->y + dir_y * (MOVE_SPEED + MARGIN))][(int)pos->x] != WALL)
 		pos->y += dir_y * MOVE_SPEED;
-	if (map[(int)pos->y][(int)(pos->x + dir_x * MOVE_SPEED)] != WALL)
+	if (map[(int)pos->y][(int)(pos->x + dir_x * (MOVE_SPEED + MARGIN))] != WALL)
 		pos->x += dir_x * MOVE_SPEED;
 }
 
@@ -64,9 +64,9 @@ static void	vt_move_update(char **map,
 	pos = &player->pos;
 	dir_x = player->dir.x * new_dir_x;
 	dir_y = player->dir.y * new_dir_y;
-	if (map[(int)(pos->y + dir_x * MOVE_SPEED)][(int)pos->x] != WALL)
+	if (map[(int)(pos->y + dir_x * (MOVE_SPEED + MARGIN))][(int)pos->x] != WALL)
 		pos->y += dir_x * MOVE_SPEED;
-	if (map[(int)pos->y][(int)(pos->x + dir_y * MOVE_SPEED)] != WALL)
+	if (map[(int)pos->y][(int)(pos->x + dir_y * (MOVE_SPEED + MARGIN))] != WALL)
 		pos->x += dir_y * MOVE_SPEED;
 }
 
