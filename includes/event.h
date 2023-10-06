@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 14:21:55 by youjeong          #+#    #+#             */
-/*   Updated: 2023/10/05 19:31:39 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/10/06 16:26:21 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 
 # define MOVE_SPEED			0.02
 # define ROT_SPEED			0.02
+# define MARGIN				0.0000000001
 
 # define WALL				'1'
 
