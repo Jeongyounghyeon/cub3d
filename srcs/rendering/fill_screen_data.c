@@ -6,7 +6,7 @@
 /*   By: youjeong <youjeong@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:41:25 by jy_23             #+#    #+#             */
-/*   Updated: 2023/09/21 14:24:38 by youjeong         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:33:47 by youjeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ static void	get_texture_height(int line_height, int *draw_range)
 	draw_range[1] = (line_height / 2) + (WINDOW_HEIGHT / 2);
 	if (draw_range[0] < 0)
 		draw_range[0] = 0;
-	if (draw_range[1] >= WINDOW_HEIGHT)
-		draw_range[1] = WINDOW_HEIGHT - 1;
+	if (draw_range[1] > WINDOW_HEIGHT)
+		draw_range[1] = WINDOW_HEIGHT;
 }
 
 static int	get_tex_x(t_config *config, double per_wall_distance, int side)
