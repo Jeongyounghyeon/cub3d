@@ -6,7 +6,7 @@
 /*   By: jy_23 <jy_23@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:43:53 by jy_23             #+#    #+#             */
-/*   Updated: 2023/10/06 16:22:18 by jy_23            ###   ########.fr       */
+/*   Updated: 2023/10/10 11:47:20 by jy_23            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ t_list	*nomalize_file(t_list *lst_4_map)
 	t_list	*pre;
 	int		not_empty_line_cnt;
 
-	iter = lst_4_map;
 	not_empty_line_cnt = 0;
-	while (not_empty_line_cnt <= NUM_OF_ELEMENT && iter)
+	while (lst_4_map && is_empty_line(lst_4_map->content) == true)
+		lst_4_map = lst_4_map->next;
+	iter = lst_4_map;
+	while (iter && not_empty_line_cnt <= NUM_OF_ELEMENT)
 	{
 		if (is_empty_line(iter->content) == true)
 			lst_remove(&pre, &iter);
